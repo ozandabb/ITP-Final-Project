@@ -1,0 +1,40 @@
+﻿@model IEnumerable<StudentApp.Models.emp_attendence>
+
+@{
+    ViewBag.Title = "seeAttendance";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search Attendance By Name</h2>
+
+<p>
+    @using (Html.BeginForm())
+    {
+        <text>Name : </text>@Html.DropDownList("list1", new SelectList(ViewBag.toDate))
+        <input type="submit" value="See Results" class="btn btn-default"/>
+    }
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employee.full_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employee.full_name)
+        </td>
+    </tr>
+}
+
+</table>
