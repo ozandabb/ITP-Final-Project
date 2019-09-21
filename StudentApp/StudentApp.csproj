@@ -422,6 +422,7 @@
     <Content Include="Views\Subjects\mainSub.cshtml" />
     <Content Include="Views\Marks\Edit.cshtml" />
     <Content Include="Views\Marks\Delete.cshtml" />
+    <Content Include="Views\Attendance\Create.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

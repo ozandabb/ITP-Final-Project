@@ -12,6 +12,33 @@
     </center>
 </div>
 <style>
+    #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #0a3d62;
+            color: white;
+        }
+
     .btn-group .button {
         background-color: white; /* Green */
         border: none;
@@ -54,7 +81,7 @@
     <center>
         <div class="btn-group">
             <button class="button"> <img src="~/img/s1.png" width="20px" /> @Html.ActionLink("Add Student   ", "Create")</button>
-            <button class="button"><img src="~/img/s2.png" width="20px" />@Html.ActionLink(" Attendance ", "Attendance")</button>
+            <button class="button"><img src="~/img/s2.png" width="20px" />@Html.ActionLink(" Attendance ", "../Attendance/Create")</button>
             <button class="button"> <img src="~/img/s3.png" width="20px" />@Html.ActionLink(" Filter Students ", "filterBy")</button>
             <button class="button"><img src="~/img/s4.png" width="20px" />@Html.ActionLink(" Create Notifications ", "filterBy")</button>
             <button class="button"><img src="~/img/s5.png" width="20px" />@Html.ActionLink(" Generate Reports ", "filterBy")</button>
@@ -76,7 +103,7 @@
     <br />
 
 
-    <table class="table">
+    <table class="table" id="customers">
         <tr class="success">
             <th>
                 @Html.DisplayNameFor(model => model.Full_Name)
@@ -138,9 +165,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Parent_Work)
                 </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                <td style="text-align:center">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) 
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                 </td>
             </tr>

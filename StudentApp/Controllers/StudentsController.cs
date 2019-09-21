@@ -114,7 +114,7 @@ namespace StudentApp.Controllers
         //To get an entrance to attandance page
         public ActionResult Attendance()
         {
-            return RedirectToAction("../Attendance/Attendance");
+            return RedirectToAction("../Attendance/Create");
         }
 
 
