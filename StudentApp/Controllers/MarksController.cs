@@ -16,7 +16,9 @@ namespace StudentApp.Controllers
         {
             var marks = from ma in _db.marksInfoes select ma;
 
+
             return View(marks);
+            //return View(_db.Students.Where(x => x.Full_Name.Contains(search) || search == null).ToList());
         }
 
         // GET: Marks/Details/5
@@ -28,67 +30,78 @@ namespace StudentApp.Controllers
         // GET: Marks/Create
         public ActionResult Create()
         {
-            return View();
+            marksInfo ex = new marksInfo();
+            ex.examCollection = _db.exams.ToList<exam>();
+            ex.stuCollection = _db.Students.ToList<Student>();
+            ex.subCollection = _db.subjects.ToList<subject>();
+            return View(ex);
         }
 
         // POST: Marks/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create([Bind(Exclude = "id")] marksInfo marksToCreate)
         {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
+            if (!ModelState.IsValid)
                 return View();
-            }
+
+            _db.marksInfoes.Add(marksToCreate);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         // GET: Marks/Edit/5
         public ActionResult Edit(int id)
         {
+            //var marksToEdit = (from m in _db.marksInfoes
+            //                   where m.m_id == id
+            //                   select m).First();
             return View();
         }
 
         // POST: Marks/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(marksInfo marksToEdit)
         {
-            try
-            {
-                // TODO: Add update logic here
+            //var originalMarks = (from m in _db.marksInfoes
+            //                    where m.m_id == marksToEdit.m_id
+            //                    select m).First();
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            //if (!ModelState.IsValid)
+            //    return View(originalMarks);
+
+            //_db.Entry(originalMarks).CurrentValues.SetValues(marksToEdit);
+            //_db.SaveChanges();
+
+            //return RedirectToAction("Index");
+            return View();
         }
 
         // GET: Marks/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            marksInfo marksToDelete = _db.marksInfoes.Find(id);
+            if (marksToDelete == null)
+            {
+                return HttpNotFound();
+            }
+            return View(marksToDelete);
+           
         }
 
         // POST: Marks/Delete/5
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            marksInfo marksToDelete = _db.marksInfoes.Find(id);
+            _db.marksInfoes.Remove(marksToDelete);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

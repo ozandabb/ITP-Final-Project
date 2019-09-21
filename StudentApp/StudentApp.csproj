@@ -135,6 +135,7 @@
     <Compile Include="Controllers\ComputerLabController.cs" />
     <Compile Include="Controllers\EmployeeAttendanceController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\FinanceManagerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LabController.cs" />
@@ -259,11 +260,15 @@
     <Content Include="img\ee.jpg" />
     <Content Include="img\employee.jpg" />
     <Content Include="img\employeelist.png" />
+    <Content Include="img\exam1.png" />
+    <Content Include="img\exams.png" />
     <Content Include="img\finance.jpg" />
+    <Content Include="img\grade.png" />
     <Content Include="img\labb.jpg" />
     <Content Include="img\loginImage.png" />
     <Content Include="img\main.jpg" />
     <Content Include="img\markEmpAtt.png" />
+    <Content Include="img\marks.png" />
     <Content Include="img\pu8.jpg" />
     <Content Include="img\s1.png" />
     <Content Include="img\s2.png" />
@@ -274,7 +279,9 @@
     <Content Include="img\searchAtt.png" />
     <Content Include="img\sss.jpg" />
     <Content Include="img\student.jpg" />
+    <Content Include="img\sub1.png" />
     <Content Include="img\subject.jpg" />
+    <Content Include="img\subjectsmain.png" />
     <Content Include="img\teacher.jpg" />
     <Content Include="img\tute.jpg" />
     <Content Include="img\viewAtt.png" />
@@ -407,6 +414,14 @@
     <Content Include="Views\EmployeeAttendance\seeAttendance.cshtml" />
     <Content Include="Views\Marks\Index.cshtml" />
     <Content Include="Views\Home\loginUser.cshtml" />
+    <Content Include="Views\Marks\Create.cshtml" />
+    <Content Include="Views\Exam\Exams.cshtml" />
+    <Content Include="Views\Exam\Create.cshtml" />
+    <Content Include="Views\Exam\Edit.cshtml" />
+    <Content Include="Views\Exam\Delete.cshtml" />
+    <Content Include="Views\Subjects\mainSub.cshtml" />
+    <Content Include="Views\Marks\Edit.cshtml" />
+    <Content Include="Views\Marks\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

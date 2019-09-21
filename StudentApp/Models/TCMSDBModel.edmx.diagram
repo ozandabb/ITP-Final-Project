@@ -13,7 +13,6 @@
         <EntityTypeShape EntityType="TMSDBModel.fund_info" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TMSDBModel.lab" Width="1.5" PointX="8.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TMSDBModel.repair" Width="1.5" PointX="13.25" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TMSDBModel.student_attendence" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TMSDBModel.student_tute" Width="1.5" PointX="8.25" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TMSDBModel.Student" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="TMSDBModel.subject" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
@@ -41,6 +40,8 @@
         <AssociationConnector Association="TMSDBModel.FK__marksInfo__e_id__17C286CF" />
         <AssociationConnector Association="TMSDBModel.FK__marksInfo__stu_i__18B6AB08" />
         <AssociationConnector Association="TMSDBModel.FK__marksInfo__sub_i__16CE6296" />
+        <EntityTypeShape EntityType="TMSDBModel.student_attendence" Width="1.5" PointX="5.25" PointY="21" />
+        <AssociationConnector Association="TMSDBModel.FK__student_a__stu_i__19AACF41" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

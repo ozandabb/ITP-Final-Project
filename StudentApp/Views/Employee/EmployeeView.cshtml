@@ -104,8 +104,8 @@
                     @Html.DisplayFor(modelItem => item.salary)
                 </td>
                 <td>
-                    <!--@Html.DisplayFor(modelItem => item.birthday)-->
-                    @DateTime.Parse(Html.DisplayFor(modelItem => item.birthday).ToString()).ToShortDateString()
+                    @Html.DisplayFor(modelItem => item.birthday)
+                    @*@DateTime.Parse(Html.DisplayFor(modelItem => item.birthday).ToString()).ToShortDateString()*@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.email)

@@ -117,6 +117,11 @@ namespace StudentApp.Controllers
             return RedirectToAction("SubjectView");
 
         }
-        
+
+        public ActionResult mainSub()
+        {
+            return View();
+        }
+
     }
 }

@@ -33,7 +33,8 @@
         </dt>
 
         <dd>
-            @DateTime.Parse(Html.DisplayFor(model => model.birthday).ToString()).ToShortDateString()
+            @*@DateTime.Parse(Html.DisplayFor(model => model.birthday).ToString()).ToShortDateString()*@
+            @Html.DisplayFor(model => model.birthday)
         </dd>
 
         <dt>

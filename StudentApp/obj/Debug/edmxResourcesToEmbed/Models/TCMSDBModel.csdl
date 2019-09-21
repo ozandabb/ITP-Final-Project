@@ -83,14 +83,6 @@
     <Property Name="repair_date" Type="DateTime" Precision="3" />
     <NavigationProperty Name="computer" Relationship="Self.FK__repair__MachineN__07C12930" FromRole="repair" ToRole="computer" />
   </EntityType>
-  <EntityType Name="student_attendence">
-    <Key>
-      <PropertyRef Name="att_id" />
-    </Key>
-    <Property Name="att_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="date" Type="DateTime" Precision="3" />
-    <Property Name="class" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="student_tute">
     <Key>
       <PropertyRef Name="st_id" />
@@ -119,6 +111,7 @@
     <NavigationProperty Name="student_tute" Relationship="Self.FK__student_t__st_id__4F7CD00D" FromRole="Students" ToRole="student_tute" />
     <NavigationProperty Name="subjects" Relationship="Self.student_subject" FromRole="Students" ToRole="subject" />
     <NavigationProperty Name="marksInfoes" Relationship="TMSDBModel.FK__marksInfo__stu_i__18B6AB08" FromRole="Student" ToRole="marksInfo" />
+    <NavigationProperty Name="student_attendence" Relationship="TMSDBModel.FK__student_a__stu_i__19AACF41" FromRole="Student" ToRole="student_attendence" />
   </EntityType>
   <EntityType Name="subject">
     <Key>
@@ -299,7 +292,6 @@
     <EntitySet Name="fund_info" EntityType="Self.fund_info" />
     <EntitySet Name="labs" EntityType="Self.lab" />
     <EntitySet Name="repairs" EntityType="Self.repair" />
-    <EntitySet Name="student_attendence" EntityType="Self.student_attendence" />
     <EntitySet Name="student_tute" EntityType="Self.student_tute" />
     <EntitySet Name="Students" EntityType="Self.Student" />
     <EntitySet Name="subjects" EntityType="Self.subject" />
@@ -365,6 +357,11 @@
     <AssociationSet Name="FK__marksInfo__sub_i__16CE6296" Association="TMSDBModel.FK__marksInfo__sub_i__16CE6296">
       <End Role="subject" EntitySet="subjects" />
       <End Role="marksInfo" EntitySet="marksInfoes" />
+    </AssociationSet>
+    <EntitySet Name="student_attendence" EntityType="TMSDBModel.student_attendence" />
+    <AssociationSet Name="FK__student_a__stu_i__19AACF41" Association="TMSDBModel.FK__student_a__stu_i__19AACF41">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="student_attendence" EntitySet="student_attendence" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Allocation">
@@ -476,6 +473,27 @@
       </Principal>
       <Dependent Role="marksInfo">
         <PropertyRef Name="sub_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="student_attendence">
+    <Key>
+      <PropertyRef Name="att_id" />
+    </Key>
+    <Property Name="att_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="date" Type="DateTime" Precision="3" />
+    <Property Name="stu_id" Type="Int32" />
+    <NavigationProperty Name="Student" Relationship="TMSDBModel.FK__student_a__stu_i__19AACF41" FromRole="student_attendence" ToRole="Student" />
+  </EntityType>
+  <Association Name="FK__student_a__stu_i__19AACF41">
+    <End Type="TMSDBModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="TMSDBModel.student_attendence" Role="student_attendence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="student_attendence">
+        <PropertyRef Name="stu_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

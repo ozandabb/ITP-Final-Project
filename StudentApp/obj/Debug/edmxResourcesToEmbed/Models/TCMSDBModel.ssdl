@@ -135,7 +135,7 @@
     </Key>
     <Property Name="att_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="date" Type="datetime" />
-    <Property Name="class" Type="varchar" MaxLength="20" />
+    <Property Name="stu_id" Type="int" />
   </EntityType>
   <EntityType Name="student_subject">
     <Key>
@@ -296,6 +296,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__student_a__stu_i__19AACF41">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="student_attendence" Type="Self.student_attendence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="student_attendence">
+        <PropertyRef Name="stu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__tute__sub_id__4222D4EF">
     <End Role="subjects" Type="Self.subjects" Multiplicity="0..1" />
     <End Role="tutes" Type="Self.tutes" Multiplicity="*" />
@@ -388,6 +400,10 @@
     <AssociationSet Name="FK__repair__MachineN__07C12930" Association="Self.FK__repair__MachineN__07C12930">
       <End Role="computers" EntitySet="computers" />
       <End Role="repairs" EntitySet="repairs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__student_a__stu_i__19AACF41" Association="Self.FK__student_a__stu_i__19AACF41">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="student_attendence" EntitySet="student_attendence" />
     </AssociationSet>
     <AssociationSet Name="FK__tute__sub_id__4222D4EF" Association="Self.FK__tute__sub_id__4222D4EF">
       <End Role="subjects" EntitySet="subjects" />
