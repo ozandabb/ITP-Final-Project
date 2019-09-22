@@ -27,6 +27,47 @@
     h3 {
         font-weight: bold;
     }
+
+    #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #0a3d62;
+            color: white;
+        }
+
+    .logoutbtn {
+        background-color: #353b48;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        padding: 8px 11px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
 </style>
 
 <h2>Search</h2>
@@ -59,7 +100,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table" id="customers">
     <tr>
         <th>
             Exam
