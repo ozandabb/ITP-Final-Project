@@ -5,6 +5,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
+using PagedList;
 
 namespace StudentApp.Controllers
 {
@@ -13,7 +15,7 @@ namespace StudentApp.Controllers
         private TCMSDBEntities _db = new TCMSDBEntities();
 
         // GET: Subjects
-        public ActionResult SubjectView(string search)
+        public ActionResult SubjectView(string search,int? i)
         {
             var subjects = from sub in _db.subjects select sub;
 
@@ -22,7 +24,7 @@ namespace StudentApp.Controllers
                 subjects = subjects.Where(s => s.title.Contains(search));
             }
 
-            return View(subjects);
+            return View(subjects.ToList().ToPagedList(i ?? 1,5));
 
         }
 

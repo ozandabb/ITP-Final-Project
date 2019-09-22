@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
+using PagedList;
 
 namespace StudentApp.Controllers
 {
@@ -12,10 +14,10 @@ namespace StudentApp.Controllers
         private TCMSDBEntities _db = new TCMSDBEntities();
 
         // GET: Exam
-        public ActionResult Exams()
+        public ActionResult Exams(int? i)
         {
             var exam = from ex in _db.exams select ex;
-            return View(exam);
+            return View(exam.ToList().ToPagedList(i ?? 1,5));
         }
 
         // GET: Exam/Details/5

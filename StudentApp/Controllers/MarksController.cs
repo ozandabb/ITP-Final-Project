@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
+using PagedList;
 
 namespace StudentApp.Controllers
 {
@@ -12,12 +14,12 @@ namespace StudentApp.Controllers
         private TCMSDBEntities _db = new TCMSDBEntities();
 
         // GET: Marks
-        public ActionResult Index()
+        public ActionResult Index(int? i)
         {
             var marks = from ma in _db.marksInfoes select ma;
 
 
-            return View(marks);
+            return View(marks.ToList().ToPagedList(i ?? 1,2));
             //return View(_db.Students.Where(x => x.Full_Name.Contains(search) || search == null).ToList());
         }
 

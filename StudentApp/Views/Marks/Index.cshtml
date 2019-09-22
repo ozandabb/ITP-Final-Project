@@ -1,9 +1,15 @@
-﻿@model IEnumerable<StudentApp.Models.marksInfo>
+﻿@model IPagedList<StudentApp.Models.marksInfo>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@*me kalla*@
+@using PagedList.Mvc;
+@using PagedList;
+
+
 <div class="jumbotron">
     <center>
         <h1><b>Pubudu Education Centre</b></h1>
@@ -24,6 +30,33 @@
         cursor: pointer;
         float: left;
     }
+
+    #mark {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #mark td, #mark th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #mark tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #mark tr:hover {
+            background-color: #ddd;
+        }
+
+        #mark th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #0a3d62;
+            color: white;
+        }
     /*
         .btn-group .button:hover {
             background-color: black;
@@ -45,9 +78,9 @@
 </center>
 
 @*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
-<table class="table">
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table" id="mark">
     <tr>
         <th>
             Exam Name
@@ -74,50 +107,55 @@
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.exam.exam_title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.Full_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.subject.title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.marks)
-        </td>
-        <td>
-            @{
-                Char g;
-                if (item.marks >= 75)
-                {
-                    g = 'A';
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.exam.exam_title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Full_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subject.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.marks)
+            </td>
+            <td>
+                @{
+                    Char g;
+                    if (item.marks >= 75)
+                    {
+                        g = 'A';
+                    }
+                    else if (item.marks >= 65)
+                    {
+                        g = 'B';
+                    }
+                    else if (item.marks >= 55)
+                    {
+                        g = 'C';
+                    }
+                    else if (item.marks >= 35)
+                    {
+                        g = 'S';
+                    }
+                    else
+                    {
+                        g = 'F';
+                    }
+                    <b>@g</b>
                 }
-                else if (item.marks >= 65)
-                {
-                    g = 'B';
-                }
-                else if (item.marks >= 55)
-                {
-                    g = 'C';
-                }
-                else if (item.marks >= 35)
-                {
-                    g = 'S';
-                }
-                else {
-                    g = 'F';
-                }
-                <b>@g</b>
-             }
-        </td>
-        <td>
-            @*@Html.ActionLink("Edit", "Edit", new { id = item.m_id }) |*@
-            @Html.ActionLink("Details", "Details", new { id = item.m_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.m_id })
-        </td>
-    </tr>
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.m_id }) |*@
+                @Html.ActionLink("Details", "Details", new { id = item.m_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.m_id })
+            </td>
+        </tr>
     }
 
 </table>
+
+@*me kalla*@
+
+@Html.PagedListPager(Model,i=>Url.Action("Index","Marks",new { i ,search =Request.QueryString["search"]}))

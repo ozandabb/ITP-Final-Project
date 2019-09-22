@@ -5,6 +5,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
+using PagedList;
 
 namespace StudentApp.Controllers
 {
@@ -13,7 +15,7 @@ namespace StudentApp.Controllers
         private TCMSDBEntities _db = new TCMSDBEntities();
 
         // GET: Employee
-        public ActionResult EmployeeView(string Search)
+        public ActionResult EmployeeView(string Search,int? i)
         {
             if (Session["UserId"] == null)
             {
@@ -28,7 +30,7 @@ namespace StudentApp.Controllers
                     employees = employees.Where(e => e.full_name.Contains(Search));
                 }
 
-                return View(employees);
+                return View(employees.ToList().ToPagedList(i ?? 1,4));
             }
             //return View(_db.employees.Where(emp => emp.full_name.Contains(Search) || Search == null).ToList());
         }

@@ -1,15 +1,19 @@
-﻿@model IEnumerable<StudentApp.Models.subject>
+﻿@model IPagedList<StudentApp.Models.subject>
 
 @{
     ViewBag.Title = "SubjectView";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using PagedList.Mvc;
+@using PagedList;
+
+
 <div class="jumbotron">
     <center>
         <h1><b>Pubudu Education Centre</b></h1>
         <h2>Subject Management</h2>
-        
+
     </center>
 </div>
 <style>
@@ -25,6 +29,32 @@
         cursor: pointer;
         float: left;
     }
+    #subject {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #subject td, #subject th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #subject tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #subject tr:hover {
+            background-color: #ddd;
+        }
+
+        #subject th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #0a3d62;
+            color: white;
+        }
     /*
         .btn-group .button:hover {
             background-color: black;
@@ -34,7 +64,7 @@
     .button:hover {
         box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     }
-    </style>
+</style>
 
 <center>
     <div class="btn-group">
@@ -45,28 +75,27 @@
 
 <p>
     <!--Html.ActionLink("Add a new Employee", "Create")-->
-
     @*<a href="@Url.Action("Create", "Subjects")"><img style="height:40px; width:40px" src="~/img/addsub.png" /> Add Subjects </a>*@
     @*<a href="@Url.Action("Create", "../Exam/Exams")"><img style="height:40px; width:40px" src="~/img/addsub.png" /> Add Exams </a>*@
 
     @using (Html.BeginForm())
     {
-<p>
+    <p>
         Name: @Html.TextBox("Search") &nbsp; &nbsp;
         <input style="border-radius: 1px" type="submit" value="search" />
     </p>
 }
 
 
-    <table class="table">
+    <table class="table" id="subject">
         <tr>
             <th>
                 Subject Name
-                <!-- @Html.DisplayNameFor(model => model.title)-->
+                <!-- @Html.DisplayNameFor(model => model.First().title)-->
             </th>
             <th>
                 Grade
-                <!--@Html.DisplayNameFor(model => model.grade)-->
+                <!--@Html.DisplayNameFor(model => model.First().grade)-->
             </th>
             <th>
                 Division
@@ -102,3 +131,5 @@
         }
 
     </table>
+
+    @Html.PagedListPager(Model, i => Url.Action("SubjectView", "Subjects", new { i, search = Request.QueryString["search"] }))

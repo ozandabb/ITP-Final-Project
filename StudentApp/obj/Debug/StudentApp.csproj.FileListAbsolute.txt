@@ -985,7 +985,6 @@ C:\Users\Adithya\Desktop\DAN EKA V2\StudentApp\bin\System.Web.WebPages.Razor.xml
 C:\Users\Adithya\Desktop\DAN EKA V2\StudentApp\bin\Newtonsoft.Json.xml
 C:\Users\Adithya\Desktop\DAN EKA V2\StudentApp\bin\Antlr3.Runtime.pdb
 C:\Users\Adithya\Desktop\DAN EKA V2\StudentApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Adithya\Desktop\DAN EKA V2\StudentApp\obj\Debug\StudentApp.csprojAssemblyReference.cache
 C:\Users\Adithya\Desktop\DAN EKA V2\StudentApp\obj\Debug\StudentApp.csproj.CoreCompileInputs.cache
 C:\Users\Adithya\Desktop\DAN EKA V2\StudentApp\obj\Debug\StudentApp.csproj.CopyComplete
 C:\Users\Adithya\Desktop\DAN EKA V2\StudentApp\obj\Debug\StudentApp.dll
@@ -1036,3 +1035,7 @@ C:\Users\Adithya\Desktop\DAN EKA V2\StudentApp\bin\roslyn\vbc.exe.config
 C:\Users\Adithya\Desktop\DAN EKA V2\StudentApp\bin\roslyn\vbc.rsp
 C:\Users\Adithya\Desktop\DAN EKA V2\StudentApp\bin\roslyn\VBCSCompiler.exe
 C:\Users\Adithya\Desktop\DAN EKA V2\StudentApp\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Adithya\Desktop\DAN EKA V2\StudentApp\bin\PagedList.dll
+C:\Users\Adithya\Desktop\DAN EKA V2\StudentApp\bin\PagedList.Mvc.dll
+C:\Users\Adithya\Desktop\DAN EKA V2\StudentApp\bin\PagedList.xml
+C:\Users\Adithya\Desktop\DAN EKA V2\StudentApp\bin\PagedList.Mvc.xml

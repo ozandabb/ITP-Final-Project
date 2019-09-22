@@ -1,8 +1,12 @@
-﻿@model IEnumerable<StudentApp.Models.teacher>
+﻿@model IPagedList<StudentApp.Models.teacher>
 @{
     ViewBag.Title = "TeacherView";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@using PagedList.Mvc;
+@using PagedList;
+
 <style>
     .btn-group .button {
         background-color: white; /* Green */
@@ -16,6 +20,33 @@
         cursor: pointer;
         float: left;
     }
+
+    #teach {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #teach td, #teach th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #teach tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #teach tr:hover {
+            background-color: #ddd;
+        }
+
+        #teach th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #0a3d62;
+            color: white;
+        }
     /*
         .btn-group .button:hover {
             background-color: black;
@@ -43,14 +74,14 @@
 @*<h4>@Html.ActionLink("Logout", "Logout", "Home")</h4>*@
 
 @*<p>
-    @Html.ActionLink("Add New Teacher", "Create")
-</p>*@
+        @Html.ActionLink("Add New Teacher", "Create")
+    </p>*@
 @using (Html.BeginForm("TeacherView", "Teacher", FormMethod.Get))
 {
     @Html.TextBox("searching") <input type="submit" value="Search" />
 }
 <br /><br />
-<table class="table">
+<table class="table" id="teach">
     <tr>
         <th>
             Full Name
@@ -120,3 +151,6 @@
         </tr>
     }
 </table>
+
+
+@Html.PagedListPager(Model, i => Url.Action("TeacherView", "Teacher", new { i, search = Request.QueryString["search"] }))

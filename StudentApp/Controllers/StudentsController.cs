@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
+using PagedList;
 
 namespace StudentApp.Controllers
 {
@@ -14,7 +16,7 @@ namespace StudentApp.Controllers
 
 
         // GET: Students
-        public ActionResult StudentView(string searching)
+        public ActionResult StudentView(string searching,int? i)
         {
             if (Session["UserId"] == null)
             {
@@ -22,7 +24,7 @@ namespace StudentApp.Controllers
             }
             else
             {
-                return View(_db.Students.Where(x => x.Full_Name.Contains(searching) || searching == null).ToList());
+                return View(_db.Students.Where(x => x.Full_Name.Contains(searching) || searching == null).ToList().ToPagedList(i ?? 1, 2));
             }
         }
         /*

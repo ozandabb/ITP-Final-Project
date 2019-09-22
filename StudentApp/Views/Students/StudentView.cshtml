@@ -1,14 +1,18 @@
-﻿@model IEnumerable<StudentApp.Models.Student>
+﻿@model IPagedList<StudentApp.Models.Student>
 
 @{
     ViewBag.Title = "StudentView";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@using PagedList.Mvc;
+@using PagedList;
+
 <div class="jumbotron">
     <center>
         <h1><b>Pubudu Education Centre</b></h1>
         <h2>Student Management</h2>
-        
+
     </center>
 </div>
 
@@ -72,107 +76,108 @@
         margin-right: 0;
         font-weight: bold;
     }
-
-   
 </style>
 
-    
-
-    <br />
-
-    <center>
-        <div class="btn-group">
-            <button class="button"> <img src="~/img/s1.png" width="20px" /> @Html.ActionLink("Add Student   ", "Create")</button>
-            <button class="button"><img src="~/img/s2.png" width="20px" />@Html.ActionLink(" Attendance ", "../Attendance/Create")</button>
-            <button class="button"> <img src="~/img/s3.png" width="20px" />@Html.ActionLink(" Filter Students ", "filterBy")</button>
-            <button class="button"><img src="~/img/s4.png" width="20px" />@Html.ActionLink(" Create Notifications ", "../Notification/Index")</button>
-            <button class="button"><img src="~/img/s5.png" width="20px" />@Html.ActionLink(" Generate Reports ", "filterBy")</button>
-            <button class="button"><img src="~/img/s6.png" width="20px" />@Html.ActionLink(" Logout ", "Logout", "Home")</button>
-        </div>
-    </center>
 
 
-    <br />
+<br />
 
-
-    <div style="text-align:right">
-        @using (Html.BeginForm("StudentView", "Students", FormMethod.Get))
-        {
-            @Html.TextBox("searching") <button type="submit"><i class="fa fa-search" style=""></i></button>
-        }
+<center>
+    <div class="btn-group">
+        <button class="button"> <img src="~/img/s1.png" width="20px" /> @Html.ActionLink("Add Student   ", "Create")</button>
+        <button class="button"><img src="~/img/s2.png" width="20px" />@Html.ActionLink(" Attendance ", "../Attendance/Create")</button>
+        <button class="button"> <img src="~/img/s3.png" width="20px" />@Html.ActionLink(" Filter Students ", "filterBy")</button>
+        <button class="button"><img src="~/img/s4.png" width="20px" />@Html.ActionLink(" Create Notifications ", "../Notification/Index")</button>
+        <button class="button"><img src="~/img/s5.png" width="20px" />@Html.ActionLink(" Generate Reports ", "filterBy")</button>
+        <button class="button"><img src="~/img/s6.png" width="20px" />@Html.ActionLink(" Logout ", "Logout", "Home")</button>
     </div>
-    <br />
-    <br />
+</center>
 
 
-    <table class="table" id="customers">
-        <tr class="success">
-            <th>
-                @Html.DisplayNameFor(model => model.Full_Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.School)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Division)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact_No)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Parent_Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Parent_Mobile)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Parent_Work)
-            </th>
-            <th></th>
+<br />
+
+
+<div style="text-align:right">
+    @using (Html.BeginForm("StudentView", "Students", FormMethod.Get))
+    {
+        @Html.TextBox("searching") <button type="submit"><i class="fa fa-search" style=""></i></button>
+    }
+</div>
+<br />
+<br />
+
+
+<table class="table" id="customers">
+    <tr class="success">
+        <th>
+            @Html.DisplayNameFor(model => model.First().Full_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().School)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Division)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Contact_No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Parent_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Parent_Mobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Parent_Work)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Full_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.School)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Division)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact_No)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parent_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parent_Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parent_Work)
+            </td>
+            <td style="text-align:center">
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                @Html.ActionLink("Details", "Details", new { id = item.Id })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
         </tr>
+    }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Full_Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.School)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Division)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Contact_No)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Parent_Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Parent_Mobile)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Parent_Work)
-                </td>
-                <td style="text-align:center">
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) 
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>
-            </tr>
-        }
+</table>
 
-    </table>
+
+@Html.PagedListPager(Model, i => Url.Action("StudentView", "Students", new { i, search = Request.QueryString["search"] }))

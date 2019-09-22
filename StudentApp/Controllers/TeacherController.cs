@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
+using PagedList;
 
 namespace StudentApp.Controllers
 {
@@ -12,7 +14,7 @@ namespace StudentApp.Controllers
 
         private TCMSDBEntities _db = new TCMSDBEntities();
         // GET: Teacher
-        public ActionResult TeacherView(string searching)
+        public ActionResult TeacherView(string searching,int? i)
         {
             if (Session["UserId"] == null)
             {
@@ -21,7 +23,7 @@ namespace StudentApp.Controllers
             else
             {
 
-                return View(_db.teachers.Where(x => x.full_name.Contains(searching) || searching == null).ToList());
+                return View(_db.teachers.Where(x => x.full_name.Contains(searching) || searching == null).ToList().ToPagedList(i ?? 1,5));
 
             }
         }

@@ -1,9 +1,13 @@
-﻿@model IEnumerable<StudentApp.Models.employee>
+﻿@model IPagedList<StudentApp.Models.employee>
 
 @{
     ViewBag.Title = "EmplyeeView";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@using PagedList.Mvc;
+@using PagedList;
+
 
 <style>
     #customers {
@@ -68,28 +72,28 @@
         <input style="border-radius: 1px" type="submit" value="Search" />
     </p>
 }
- 
+
     <table class="table" id="customers">
         <tr>
             <th>
                 Full Name
-                <!--@Html.DisplayNameFor(model => model.full_name)-->
+                <!--@Html.DisplayNameFor(model => model.First().full_name)-->
             </th>
             <th>
                 Salary
-                <!--@Html.DisplayNameFor(model => model.salary)-->
+                <!--@Html.DisplayNameFor(model => model.First().salary)-->
             </th>
             <th>
                 Birth date
-                <!--@Html.DisplayNameFor(model => model.birthday)-->
+                <!--@Html.DisplayNameFor(model => model.First().birthday)-->
             </th>
             <th>
                 Email
-                <!--@Html.DisplayNameFor(model => model.email)-->
+                <!--@Html.DisplayNameFor(model => model.First().email)-->
             </th>
             <th>
                 Contact Number
-                <!--@Html.DisplayNameFor(model => model.contact_num)-->
+                <!--@Html.DisplayNameFor(model => model.First().contact_num)-->
             </th>
             <th></th>
         </tr>
@@ -124,3 +128,4 @@
 
     </table>
 
+    @Html.PagedListPager(Model, i => Url.Action("EmployeeView", "Employee", new { i, search = Request.QueryString["search"] }))
