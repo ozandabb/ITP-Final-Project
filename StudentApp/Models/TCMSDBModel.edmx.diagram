@@ -42,6 +42,7 @@
         <AssociationConnector Association="TMSDBModel.FK__student_a__stu_i__19AACF41" />
         <EntityTypeShape EntityType="TMSDBModel.emp_attendence" Width="1.5" PointX="13" PointY="5.25" />
         <AssociationConnector Association="TMSDBModel.FK__emp_atten__emp_i__65F62111" />
+        <EntityTypeShape EntityType="TMSDBModel.notify" Width="1.5" PointX="10.375" PointY="8.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

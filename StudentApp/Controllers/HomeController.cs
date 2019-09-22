@@ -45,6 +45,12 @@ namespace StudentApp.Controllers
             return View();
         }
 
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
+        }
+
         [HttpPost]
         public ActionResult Register([Bind(Exclude ="id")] Student studentToCreate)
         {
@@ -97,8 +103,7 @@ namespace StudentApp.Controllers
                 Session["Username"] = u.UserName_.ToString();
                 TempData["LoginSuccessmessage"] = "<script>alert('Successfully Login')</script>";
                 return RedirectToAction("StudentProfile", "StudentProfile");
-            }
-            
+            }   
             else
             {
                 ViewBag.ErrorMessage = "<script>alert('Login Failed ')</script>";

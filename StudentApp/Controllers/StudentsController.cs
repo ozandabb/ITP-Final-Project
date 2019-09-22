@@ -25,13 +25,13 @@ namespace StudentApp.Controllers
                 return View(_db.Students.Where(x => x.Full_Name.Contains(searching) || searching == null).ToList());
             }
         }
-
+        /*
         public ActionResult Logout()
         {
             Session.Abandon();
             return RedirectToAction("Index", "Home");
         }
-
+        */
         //To print relevant student details
         public ActionResult Details(int id)
         {

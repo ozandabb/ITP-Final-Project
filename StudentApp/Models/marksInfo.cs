@@ -33,5 +33,6 @@ namespace StudentApp.Models
 
         [NotMapped]
         public List<Student> stuCollection { get; set; }
+
     }
 }

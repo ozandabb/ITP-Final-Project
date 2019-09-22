@@ -141,6 +141,7 @@
     <Compile Include="Controllers\LabController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MarksController.cs" />
+    <Compile Include="Controllers\NotificationController.cs" />
     <Compile Include="Controllers\RepairController.cs" />
     <Compile Include="Controllers\StudentProfileController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
@@ -184,6 +185,9 @@
       <DependentUpon>TCMSDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\marksInfo.cs">
+      <DependentUpon>TCMSDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\notify.cs">
       <DependentUpon>TCMSDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\repair.cs">
@@ -425,6 +429,11 @@
     <Content Include="Views\Attendance\Create.cshtml" />
     <Content Include="Views\Teacher\paymentAdd.cshtml" />
     <Content Include="Views\Marks\Search.cshtml" />
+    <Content Include="Views\Notification\Index.cshtml" />
+    <Content Include="Views\Notification\Create.cshtml" />
+    <Content Include="Views\Notification\Edit.cshtml" />
+    <Content Include="Views\Notification\Delete.cshtml" />
+    <Content Include="Views\Notification\StuNotifyView.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

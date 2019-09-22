@@ -14,7 +14,16 @@ namespace StudentApp.Controllers
         // GET: Teacher
         public ActionResult TeacherView(string searching)
         {
-            return View(_db.teachers.Where(x => x.full_name.Contains(searching) || searching == null).ToList());
+            if (Session["UserId"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+
+                return View(_db.teachers.Where(x => x.full_name.Contains(searching) || searching == null).ToList());
+
+            }
         }
 
         // GET: Teacher/Details/5

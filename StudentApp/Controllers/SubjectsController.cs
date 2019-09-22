@@ -120,7 +120,15 @@ namespace StudentApp.Controllers
 
         public ActionResult mainSub()
         {
-            return View();
+            if (Session["UserId"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+
+                return View();
+            }
         }
 
     }

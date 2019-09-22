@@ -6,69 +6,30 @@
 @Html.Raw(TempData["LoginSuccessmessage"])
 
 
+<div style="text-align:right">
+    <h3>Welcome @Session["Username"]</h3>
 
-<h2>Index</h2>
+    <h4>@Html.ActionLink("Logout", "Logout", "StudentProfile")</h4>
+</div>
+<hr />
 
-<h3>Welcome @Session["Username"]</h3>
 
-<h4>@Html.ActionLink("Logout", "Logout", "StudentProfile")</h4>
 <div>
-    <h4>Student</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Full_Name)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Full_Name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.School)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.School)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Division)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Division)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Contact_No)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Contact_No)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Parent_Name)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Parent_Name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Parent_Mobile)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Parent_Mobile)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Parent_Work)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Parent_Work)
-        </dd>
-    </dl>
+    <h2>Search your Marks here</h2>
+    @Html.ActionLink("Search here", "../Marks/Search")
+</div>
+
+<div style="text-align:right">
+    <h2>Search Notifications here</h2>
+    @Html.ActionLink("Search here", "../Notification/StuNotifyView")
+</div>
+
+<div>
+    <h2>Search your Marks here</h2>
+    @Html.ActionLink("Search here", "../Marks/Search")
+</div>
+
+<div>
+    <h2>Search your Marks here</h2>
+    @Html.ActionLink("Search here", "../Marks/Search")
 </div>

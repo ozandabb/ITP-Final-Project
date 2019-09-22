@@ -260,5 +260,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="notifies">
+      <EntityTypeMapping TypeName="TMSDBModel.notify">
+        <MappingFragment StoreEntitySet="notify">
+          <ScalarProperty Name="descript" ColumnName="descript" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="n_id" ColumnName="n_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -951,8 +951,8 @@ F:\Osandage version eka\Osandage version 3\ITP-Final-Project\StudentApp\bin\Syst
 F:\Osandage version eka\Osandage version 3\ITP-Final-Project\StudentApp\bin\Newtonsoft.Json.xml
 F:\Osandage version eka\Osandage version 3\ITP-Final-Project\StudentApp\bin\Antlr3.Runtime.pdb
 F:\Osandage version eka\Osandage version 3\ITP-Final-Project\StudentApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-F:\Osandage version eka\Osandage version 3\ITP-Final-Project\StudentApp\obj\Debug\StudentApp.csprojResolveAssemblyReference.cache
 F:\Osandage version eka\Osandage version 3\ITP-Final-Project\StudentApp\obj\Debug\StudentApp.csproj.CoreCompileInputs.cache
 F:\Osandage version eka\Osandage version 3\ITP-Final-Project\StudentApp\obj\Debug\StudentApp.csproj.CopyComplete
 F:\Osandage version eka\Osandage version 3\ITP-Final-Project\StudentApp\obj\Debug\StudentApp.dll
 F:\Osandage version eka\Osandage version 3\ITP-Final-Project\StudentApp\obj\Debug\StudentApp.pdb
+F:\Osandage version eka\Osandage version 3\ITP-Final-Project\StudentApp\obj\Debug\StudentApp.csprojResolveAssemblyReference.cache

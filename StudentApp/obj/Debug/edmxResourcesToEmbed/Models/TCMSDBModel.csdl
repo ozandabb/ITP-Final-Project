@@ -344,6 +344,7 @@
       <End Role="employee" EntitySet="employees" />
       <End Role="emp_attendence" EntitySet="emp_attendence" />
     </AssociationSet>
+    <EntitySet Name="notifies" EntityType="TMSDBModel.notify" />
   </EntityContainer>
   <EntityType Name="Allocation">
     <Key>
@@ -501,4 +502,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="notify">
+    <Key>
+      <PropertyRef Name="n_id" />
+    </Key>
+    <Property Name="n_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="descript" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

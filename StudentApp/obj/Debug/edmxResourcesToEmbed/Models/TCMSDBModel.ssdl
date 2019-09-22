@@ -119,6 +119,14 @@
     <Property Name="stu_id" Type="int" />
     <Property Name="marks" Type="int" />
   </EntityType>
+  <EntityType Name="notify">
+    <Key>
+      <PropertyRef Name="n_id" />
+    </Key>
+    <Property Name="n_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="100" />
+    <Property Name="descript" Type="varchar" MaxLength="200" />
+  </EntityType>
   <EntityType Name="repairs">
     <Key>
       <PropertyRef Name="repair_id" />
@@ -264,8 +272,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__marksInfo__e_id__17C286CF">
-    <End Role="exams" Type="Self.exams" Multiplicity="0..1" />
+  <Association Name="FK__marksInfo__e_id__79FD19BE">
+    <End Role="exams" Type="Self.exams" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="marksInfo" Type="Self.marksInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="exams">
@@ -290,8 +300,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__marksInfo__sub_i__16CE6296">
-    <End Role="subjects" Type="Self.subjects" Multiplicity="0..1" />
+  <Association Name="FK__marksInfo__sub_i__7908F585">
+    <End Role="subjects" Type="Self.subjects" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="marksInfo" Type="Self.marksInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="subjects">
@@ -389,6 +401,7 @@
     <EntitySet Name="Invoices" EntityType="Self.Invoices" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="labs" EntityType="Self.labs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="marksInfo" EntityType="Self.marksInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="notify" EntityType="Self.notify" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="repairs" EntityType="Self.repairs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="student_attendence" EntityType="Self.student_attendence" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="student_subject" EntityType="Self.student_subject" Schema="dbo" store:Type="Tables" />
@@ -409,7 +422,7 @@
       <End Role="employees" EntitySet="employees" />
       <End Role="emp_attendence" EntitySet="emp_attendence" />
     </AssociationSet>
-    <AssociationSet Name="FK__marksInfo__e_id__17C286CF" Association="Self.FK__marksInfo__e_id__17C286CF">
+    <AssociationSet Name="FK__marksInfo__e_id__79FD19BE" Association="Self.FK__marksInfo__e_id__79FD19BE">
       <End Role="exams" EntitySet="exams" />
       <End Role="marksInfo" EntitySet="marksInfo" />
     </AssociationSet>
@@ -417,7 +430,7 @@
       <End Role="Students" EntitySet="Students" />
       <End Role="marksInfo" EntitySet="marksInfo" />
     </AssociationSet>
-    <AssociationSet Name="FK__marksInfo__sub_i__16CE6296" Association="Self.FK__marksInfo__sub_i__16CE6296">
+    <AssociationSet Name="FK__marksInfo__sub_i__7908F585" Association="Self.FK__marksInfo__sub_i__7908F585">
       <End Role="subjects" EntitySet="subjects" />
       <End Role="marksInfo" EntitySet="marksInfo" />
     </AssociationSet>

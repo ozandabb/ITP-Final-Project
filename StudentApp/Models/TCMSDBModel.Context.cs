@@ -48,5 +48,6 @@ namespace StudentApp.Models
         public virtual DbSet<marksInfo> marksInfoes { get; set; }
         public virtual DbSet<student_attendence> student_attendence { get; set; }
         public virtual DbSet<emp_attendence> emp_attendence { get; set; }
+        public virtual DbSet<notify> notifies { get; set; }
     }
 }

@@ -28,6 +28,9 @@
             @Html.DisplayNameFor(model => model.marks)
         </th>
         <th>
+            Grade
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.exam.exam_title)
         </th>
         <th>
@@ -36,7 +39,6 @@
         <th>
             @Html.DisplayNameFor(model => model.subject.title)
         </th>
-        <th></th>
     </tr>
 
     @foreach (var item in Model)
@@ -46,6 +48,32 @@
                 @Html.DisplayFor(modelItem => item.marks)
             </td>
             <td>
+                @{
+                    Char g;
+                    if (item.marks >= 75)
+                    {
+                        g = 'A';
+                    }
+                    else if (item.marks >= 65)
+                    {
+                        g = 'B';
+                    }
+                    else if (item.marks >= 55)
+                    {
+                        g = 'C';
+                    }
+                    else if (item.marks >= 35)
+                    {
+                        g = 'S';
+                    }
+                    else
+                    {
+                        g = 'F';
+                    }
+                  <b>@g</b>
+                }
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.exam.exam_title)
             </td>
             <td>
@@ -53,11 +81,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.subject.title)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.m_id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.m_id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.m_id })
             </td>
         </tr>
     }

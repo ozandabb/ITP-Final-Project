@@ -15,14 +15,21 @@ namespace StudentApp.Controllers
         // GET: Employee
         public ActionResult EmployeeView(string Search)
         {
-            var employees = from em in _db.employees select em;
-
-            if (!String.IsNullOrEmpty(Search))
+            if (Session["UserId"] == null)
             {
-                employees = employees.Where(e => e.full_name.Contains(Search));
+                return RedirectToAction("Index", "Home");
             }
+            else
+            {
+                var employees = from em in _db.employees select em;
 
-            return View(employees);
+                if (!String.IsNullOrEmpty(Search))
+                {
+                    employees = employees.Where(e => e.full_name.Contains(Search));
+                }
+
+                return View(employees);
+            }
             //return View(_db.employees.Where(emp => emp.full_name.Contains(Search) || Search == null).ToList());
         }
 
@@ -39,7 +46,14 @@ namespace StudentApp.Controllers
         // GET: Employee/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["UserId"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         // POST: Employee/Create
@@ -139,7 +153,14 @@ namespace StudentApp.Controllers
         }
 
         public ActionResult main() {
-            return View();
+            if (Session["UserId"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
 
     }

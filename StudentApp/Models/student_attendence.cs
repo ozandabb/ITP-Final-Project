@@ -23,5 +23,6 @@ namespace StudentApp.Models
 
         [NotMapped]
         public List<Student> studentCollection { get; set; }
+
     }
 }

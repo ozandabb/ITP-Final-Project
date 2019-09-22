@@ -21,12 +21,12 @@ namespace StudentApp.Controllers
             }
             
         }
-
+        /*
         public ActionResult Logout()
         {
             Session.Abandon();
             return RedirectToAction("Index", "Home");
         }
-
+        */
     }
 }
