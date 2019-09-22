@@ -103,5 +103,43 @@ namespace StudentApp.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        //public ActionResult Search() {
+
+        //    marksInfo ex = new marksInfo();
+        //    ex.examCollection = _db.exams.ToList<exam>();
+        //    ex.stuCollection = _db.Students.ToList<Student>();
+        //    ex.subCollection = _db.subjects.ToList<subject>();
+        //    //ex = from ma in _db.marksInfoes select ma;
+        //    return View(ex);
+
+        //}
+
+        //public ActionResult Search() {
+
+        //    ViewBag.stuName = (from r in _db.marksInfoes
+        //                       select r.stu_id).Distinct();
+
+        //    var marks = from ma in _db.marksInfoes select ma;
+
+        //    return View(marks);
+        //}
+
+        //[HttpPost]
+        public ActionResult Search(int? stuId)
+        {
+            
+            //var employeeAttend = from emp in _db.emp_attendence select emp;
+            var marks = from ma in _db.marksInfoes select ma;
+
+            var model = from r in _db.marksInfoes
+                        orderby r.stu_id
+                        where r.stu_id == stuId
+                        select r;
+            //if(stuId == null)
+            //marks = marks.Where(e => e.stu_id == stuId);
+
+            return View(model);
+        }
     }
 }

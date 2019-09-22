@@ -424,6 +424,7 @@
     <Content Include="Views\Marks\Delete.cshtml" />
     <Content Include="Views\Attendance\Create.cshtml" />
     <Content Include="Views\Teacher\paymentAdd.cshtml" />
+    <Content Include="Views\Marks\Search.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

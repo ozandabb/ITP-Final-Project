@@ -39,25 +39,35 @@
         display: table;
         clear: both;
     }
+
+    h3 {
+        font-weight: bold;
+    }
+
+    #ani {
+        background: #DAD299; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #B0DAB9, #DAD299); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #B0DAB9, #DAD299); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
 </style>
 
-<div class="row">
+<div class="row" style="margin-left: 0px !important">
 
     <a href="@Url.Action("SubjectView", "Subjects")">
-        <div class="column" style="background-color:#f39c12; text-align: center">
-            <h3 style="margin-left: auto; color:white; font-size:30px; font-weight:bold">Subjects</h3><br />
+        <div class="column" style="text-align: center" id="ani">
+            <h3 style="margin-left: auto;">Subjects</h3><br />
             <img src="~/img/subjectsmain.png" style="display: block; height: 180px; width: 180px; margin: auto auto auto auto" />
         </div>
     </a>
     <a href="@Url.Action("Exams", "Exam")">
-        <div class="column" style="background-color:#f39c12; text-align: center">
-            <h3 style="margin-left: auto; color:white; font-size:30px; font-weight:bold">Exams</h3><br />
+        <div class="column" style="text-align: center" id="ani">
+            <h3 style="margin-left: auto;">Exams</h3><br />
             <img src="~/img/exams.png" style="display: block; height: 150px; width: 150px; margin: auto auto auto auto" />
         </div>
     </a>
     <a href="@Url.Action("Index", "Marks")">
-        <div class="column" style="background-color:#f39c12; text-align: center">
-            <h3 style="margin-left: auto; color:white; font-size:30px; font-weight:bold">Marks</h3><br />
+        <div class="column" style="text-align: center" id="ani">
+            <h3 style="margin-left: auto;">Marks</h3><br />
             <img src="~/img/marks.png" style="display: block; height: 150px; width: 150px; margin: auto auto auto auto" />
         </div>
     </a>

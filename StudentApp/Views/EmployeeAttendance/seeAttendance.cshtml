@@ -10,7 +10,7 @@
 <p>
     @using (Html.BeginForm())
     {
-        <text>Name : </text>
+        <text>Name : @Html.Editor("date", new { htmlAttributes = new { @class = "form-control", Type = "date" } })</text>
         <input type="submit" value="See Results" class="btn btn-default" />
     }
 </p>
@@ -26,15 +26,16 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.employee.full_name)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.employee.full_name)
+            </td>
+        </tr>
+    }
 
 </table>

@@ -119,7 +119,15 @@ namespace StudentApp.Controllers
             }
         }
 
-        public ActionResult seeAttendance(String id)
+        //public ActionResult seeAttendance(DateTime date)
+        //{
+        //    var emps = from emp in _db.emp_attendence orderby emp.date where emp.date == date select emp;
+
+        //    return View(emps);
+        //}
+
+        //[HttpPost]
+        public ActionResult seeAttendance(DateTime? date)
         {
             //ViewBag.toDate = (from r in _db.emp_attendence
             //                  select r.emp_id.ToString()).Distinct();
@@ -127,9 +135,9 @@ namespace StudentApp.Controllers
 
             var employeeAttend = from emp in _db.emp_attendence select emp;
 
-            if (!String.IsNullOrEmpty(id))
+            if (date != null)
             {
-                employeeAttend = employeeAttend.Where(e => e.employee.emp_id.ToString().Contains(id));
+                employeeAttend = employeeAttend.Where(e => e.date == date);
             }
 
             return View(employeeAttend);

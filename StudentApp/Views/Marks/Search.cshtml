@@ -1,0 +1,62 @@
+﻿@model IEnumerable<StudentApp.Models.marksInfo>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search</h2>
+
+<p>
+    @using (Html.BeginForm())
+    {
+        <text>Student ID : </text><input type="text" />
+        <input type="submit" value="search" />
+    }
+</p>
+<br /><br />
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.marks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.exam.exam_title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.Full_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subject.title)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.marks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.exam.exam_title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Full_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subject.title)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.m_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.m_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.m_id })
+            </td>
+        </tr>
+    }
+
+</table>
