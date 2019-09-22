@@ -126,20 +126,33 @@ namespace StudentApp.Controllers
         //}
 
         //[HttpPost]
-        public ActionResult Search(int? stuId)
+        public ActionResult Search(int? stuId, int? examId)
         {
-            
-            //var employeeAttend = from emp in _db.emp_attendence select emp;
-            var marks = from ma in _db.marksInfoes select ma;
 
-            var model = from r in _db.marksInfoes
-                        orderby r.stu_id
-                        where r.stu_id == stuId
-                        select r;
+            //var employeeAttend = from emp in _db.emp_attendence select emp;
+            //var marks = from ma in _db.marksInfoes select ma;
+
+            //var model = from r in _db.marksInfoes
+            //            orderby r.stu_id
+            //            where r.stu_id == stuId
+            //            select r;
             //if(stuId == null)
             //marks = marks.Where(e => e.stu_id == stuId);
 
-            return View(model);
+            ViewBag.students = (from r in _db.marksInfoes
+                              select r.stu_id).Distinct();
+
+            var marks = from ma in _db.marksInfoes select ma;
+
+            if (stuId != null || examId != null)
+            {
+                marks = marks.Where(e => e.stu_id == stuId || e.e_id == examId);
+                //marks = marks.Where(e => e.e_id == examId);
+            }
+
+            return View(marks);
+
+            //return View(model);
         }
     }
 }

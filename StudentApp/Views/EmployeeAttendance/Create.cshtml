@@ -27,7 +27,7 @@
         <div class="form-group">
             <div class="control-label col-md-2"><b>Employee Name</b></div>
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.emp_id, new SelectList(Model.employeeCollection, "emp_id", "full_name"), "Select the employee")
+                @Html.DropDownListFor(model => model.emp_id, new SelectList(Model.employeeCollection, "emp_id", "full_name"), "Select the employee.", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.emp_id, "", new { @class = "text-danger" })
             </div>
         </div>

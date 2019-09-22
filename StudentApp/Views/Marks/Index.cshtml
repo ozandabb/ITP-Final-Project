@@ -38,7 +38,7 @@
 <center>
     <div class="btn-group">
         <button class="button"> <img src="~/img/grade.png" width="20px" /> @Html.ActionLink("Add Marks", "Create")</button>
-        <button class="button"> <img src="~/img/s3.png" width="20px" />@Html.ActionLink(" Filter Marks ", "filterBy")</button>
+        <button class="button"> <img src="~/img/s3.png" width="20px" />@Html.ActionLink(" Filter Marks ", "Search")</button>
         <button class="button"><img src="~/img/s5.png" width="20px" />@Html.ActionLink(" Generate Reports ", "filterBy")</button>
         <button class="button"><img src="~/img/s6.png" width="20px" />@Html.ActionLink(" Logout ", "filterBy")</button>
     </div>
@@ -65,30 +65,59 @@
             Marks
             @*@Html.DisplayNameFor(model => model.marks)*@
         </th>
+        <th>
+            Grade
+            @*@Html.DisplayNameFor(model => model.marks)*@
+        </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.exam.exam_title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Student.Full_Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.subject.title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.marks)
-            </td>
-            <td>
-                @*@Html.ActionLink("Edit", "Edit", new { id = item.m_id }) |*@
-                @Html.ActionLink("Details", "Details", new { id = item.m_id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.m_id })
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.exam.exam_title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.Full_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.subject.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.marks)
+        </td>
+        <td>
+            @{
+                Char g;
+                if (item.marks >= 75)
+                {
+                    g = 'A';
+                }
+                else if (item.marks >= 65)
+                {
+                    g = 'B';
+                }
+                else if (item.marks >= 55)
+                {
+                    g = 'C';
+                }
+                else if (item.marks >= 35)
+                {
+                    g = 'S';
+                }
+                else {
+                    g = 'F';
+                }
+                <b>@g</b>
+             }
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.m_id }) |*@
+            @Html.ActionLink("Details", "Details", new { id = item.m_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.m_id })
+        </td>
+    </tr>
     }
 
 </table>

@@ -10,8 +10,11 @@
 <p>
     @using (Html.BeginForm())
     {
-        <text>Student ID : </text><input type="text" />
-        <input type="submit" value="search" />
+        @*<text>Student ID : </text><input type="text" />*@
+        <text>Student ID:</text> @Html.Editor("stuid", new { htmlAttributes = new { @class = "form-control" } })
+        <text>Exam ID:</text> @Html.Editor("examid", new { htmlAttributes = new { @class = "form-control" } })
+        <br />
+        <input type="submit" value="search" class="btn btn-default" />
     }
 </p>
 <br /><br />
