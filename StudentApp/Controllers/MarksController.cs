@@ -24,7 +24,10 @@ namespace StudentApp.Controllers
         // GET: Marks/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var marksdetails = (from s in _db.marksInfoes
+                                 where s.m_id == id
+                                 select s).First();
+            return View(marksdetails);
         }
 
         // GET: Marks/Create

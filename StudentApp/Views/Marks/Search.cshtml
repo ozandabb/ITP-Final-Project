@@ -4,18 +4,55 @@
     ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Create three equal columns that floats next to each other */
+    .column {
+        float: left;
+        width: 33%;
+        padding: 10px;
+        height: 10px; /* Should be removed. Only for demonstration */
+        margin-bottom: 3px;
+        margin-left: 3px;
+        opacity: 1;
+        transition: 0.3s;
+    }
+
+    /* Clear floats after the columns */
+    
+
+    h3 {
+        font-weight: bold;
+    }
+</style>
 
 <h2>Search</h2>
+@using (Html.BeginForm())
+{
+<div class="row" style="margin-left: 0px !important">
 
-<p>
-    @using (Html.BeginForm())
-    {
-        @*<text>Student ID : </text><input type="text" />*@
+    <div class="column" style="text-align: center" id="ani">
         <text>Student ID:</text> @Html.Editor("stuid", new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="column" style="text-align: center" id="ani">
         <text>Exam ID:</text> @Html.Editor("examid", new { htmlAttributes = new { @class = "form-control" } })
-        <br />
-        <input type="submit" value="search" class="btn btn-default" />
-    }
+    </div>
+    <br />
+    <input type="submit" value="search" class="btn btn-default" />
+</div>
+}
+<p>
+
+    
+    @*<text>Student ID : </text><input type="text" />*@
+    
+    
+   
+    
 </p>
 <br /><br />
 
@@ -25,25 +62,40 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.marks)
+            Exam
+            @*@Html.DisplayNameFor(model => model.marks)*@
+        </th>
+        <th>
+            Student
+        </th>
+        <th>
+            Subject
+            @*@Html.DisplayNameFor(model => model.exam.exam_title)*@
+        </th>
+        <th>
+            Marks
+            @*@Html.DisplayNameFor(model => model.Student.Full_Name)*@
         </th>
         <th>
             Grade
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.exam.exam_title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Student.Full_Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.subject.title)
+            @*@Html.DisplayNameFor(model => model.subject.title)*@
         </th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.exam.exam_title)
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Full_Name)
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subject.title)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.marks)
             </td>
@@ -70,17 +122,8 @@
                     {
                         g = 'F';
                     }
-                  <b>@g</b>
+                    <b>@g</b>
                 }
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.exam.exam_title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Student.Full_Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.subject.title)
             </td>
         </tr>
     }
