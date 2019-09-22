@@ -17,7 +17,7 @@ namespace StudentApp.Controllers
         public ActionResult Exams(int? i)
         {
             var exam = from ex in _db.exams select ex;
-            return View(exam.ToList().ToPagedList(i ?? 1,5));
+            return View(exam.ToList().ToPagedList(i ?? 1,10));
         }
 
         // GET: Exam/Details/5

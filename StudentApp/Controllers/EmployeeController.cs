@@ -30,7 +30,7 @@ namespace StudentApp.Controllers
                     employees = employees.Where(e => e.full_name.Contains(Search));
                 }
 
-                return View(employees.ToList().ToPagedList(i ?? 1,4));
+                return View(employees.ToList().ToPagedList(i ?? 1,10));
             }
             //return View(_db.employees.Where(emp => emp.full_name.Contains(Search) || Search == null).ToList());
         }

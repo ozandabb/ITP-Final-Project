@@ -24,7 +24,7 @@ namespace StudentApp.Controllers
             }
             else
             {
-                return View(_db.Students.Where(x => x.Full_Name.Contains(searching) || searching == null).ToList().ToPagedList(i ?? 1, 2));
+                return View(_db.Students.Where(x => x.Full_Name.Contains(searching) || searching == null).ToList().ToPagedList(i ?? 1, 10));
             }
         }
         /*

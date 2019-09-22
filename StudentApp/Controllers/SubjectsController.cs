@@ -24,7 +24,7 @@ namespace StudentApp.Controllers
                 subjects = subjects.Where(s => s.title.Contains(search));
             }
 
-            return View(subjects.ToList().ToPagedList(i ?? 1,5));
+            return View(subjects.ToList().ToPagedList(i ?? 1,10));
 
         }
 

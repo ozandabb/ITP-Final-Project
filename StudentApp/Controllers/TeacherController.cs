@@ -23,7 +23,7 @@ namespace StudentApp.Controllers
             else
             {
 
-                return View(_db.teachers.Where(x => x.full_name.Contains(searching) || searching == null).ToList().ToPagedList(i ?? 1,5));
+                return View(_db.teachers.Where(x => x.full_name.Contains(searching) || searching == null).ToList().ToPagedList(i ?? 1,10));
 
             }
         }
