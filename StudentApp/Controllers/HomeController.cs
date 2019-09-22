@@ -85,13 +85,20 @@ namespace StudentApp.Controllers
         public ActionResult loginUser(user u)
         {
             var user = _db.users.Where(model => model.UserName_ == u.UserName_ && model.Password_ == u.Password_).FirstOrDefault();
-            if (user != null)
+            if (user.UserName_ == "admin@gmail.com" && user.Password_ == "admin123")
+            {
+                Session["UserID"] = u.UserId_.ToString();
+                Session["UserName"] = u.UserName_.ToString();
+                return RedirectToAction("../Admin/AdminView");
+            }
+            else if (user != null)
             {
                 Session["UserId"] = u.UserId_.ToString();
                 Session["Username"] = u.UserName_.ToString();
                 TempData["LoginSuccessmessage"] = "<script>alert('Successfully Login')</script>";
                 return RedirectToAction("StudentProfile", "StudentProfile");
             }
+            
             else
             {
                 ViewBag.ErrorMessage = "<script>alert('Login Failed ')</script>";

@@ -16,25 +16,45 @@ namespace StudentApp.Controllers
         // GET: Students
         public ActionResult StudentView(string searching)
         {
-            return View(_db.Students.Where(x => x.Full_Name.Contains(searching) || searching == null).ToList());
+            if (Session["UserId"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View(_db.Students.Where(x => x.Full_Name.Contains(searching) || searching == null).ToList());
+            }
         }
 
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
+        }
 
         //To print relevant student details
         public ActionResult Details(int id)
         {
-            var studentDetais = (from m in _db.Students
-                                  where m.Id == id
-                                  select m).First();
-            return View(studentDetais);
-            //return View();
+               var studentDetais = (from m in _db.Students
+                                     where m.Id == id
+                                     select m).First();
+                return View(studentDetais);
+            
+            
         }
 
 
         // GET: Students/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["UserId"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
 
 

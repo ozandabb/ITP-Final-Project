@@ -1,5 +1,6 @@
 ﻿@model StudentApp.Models.Student
 
+<h4>@Html.ActionLink("Logout", "Logout", "Students")</h4>
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()

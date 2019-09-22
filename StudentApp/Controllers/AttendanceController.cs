@@ -43,7 +43,7 @@ namespace StudentApp.Controllers
                 _db.SaveChanges();
 
                 return RedirectToAction("Attendance");
-                //return View();
+                
             }
             catch
             {

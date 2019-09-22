@@ -11,7 +11,21 @@ namespace StudentApp.Controllers
         // GET: Admin
         public ActionResult AdminView()
         {
-            return View();
+            if (Session["UserId"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
+            
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
         }
 
     }

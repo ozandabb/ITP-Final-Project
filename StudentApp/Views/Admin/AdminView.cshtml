@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@Html.Raw(TempData["LoginSuccessmessage"])
+<h4>@Html.ActionLink("Logout", "Logout", "Admin")</h4>
 <style>
     /*---------------------------services---------------------------*/
     #services {
@@ -70,6 +72,7 @@
         cursor: pointer;
         transition: 0.5s;
     }
+
     h1 {
         display: block;
         font-size: 2em;
@@ -79,7 +82,6 @@
         margin-right: 0;
         font-weight: bold;
     }
-
 </style>
 
 
@@ -89,7 +91,7 @@
         <div class="row">
             <div class="col-md-4 text-center">
                 <div class="profile">
-                    <a href="../Students/StudentView"><img src="~/img/student.jpg" class="img-responsive"/></a>
+                    <a href="../Students/StudentView"><img src="~/img/student.jpg" class="img-responsive" /></a>
                     <!--<h1 style="text-decoration-style:none">@Html.ActionLink("Student ", "../Students/StudentView")</h1>-->
                 </div>
             </div>
@@ -99,61 +101,61 @@
                     <a href="../Employee/main"><img src="~/img/employee.jpg" class="img-responsive" /></a>
                     <!--<h1 style="text-decoration-style:none">@Html.ActionLink("Employee ", "../Employee/main")</h1>-->
                 </div>
-    </div>
+            </div>
 
-    <div class="col-md-4 text-center">
-        <div class="profile">
-            <a href="../Subjects/mainSub"><img src="~/img/subject.jpg" class="img-responsive" /></a>
-            <!--<h1 style="text-decoration-style:none">@Html.ActionLink("Subject ", "../Subjects/mainSub")</h1>-->
-                </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4 text-center">
-            <div class="profile">
-                <a href="../Tutes/Index"><img src="~/img/tute.jpg" class="img-responsive" /></a>
-                <!--<h1 style="text-decoration-style:none">@Html.ActionLink("Tute ", "../Tutes/Index")</h1>-->
-                </div>
-        </div>
-
-        <div class="col-md-4 text-center">
-            <div class="profile">
-                <a href="../FinanceManager/FinanceManagerHome"><img src="~/img/finance.jpg" class="img-responsive" /></a>
-                <!--<h1 style="text-decoration-style:none">@Html.ActionLink("Finance ", "../FinanceManager/FinanceManagerHome")</h1>-->
-                </div>
-        </div>
-
-        <div class="col-md-4 text-center">
-            <div class="profile">
-                <a href="../Teacher/TeacherView"><img src="~/img/teacher.jpg" class="img-responsive" /></a>
-                <!--<h1 style="text-decoration-style:none">@Html.ActionLink("Teacher ", "../Teacher/TeacherView")</h1>-->
-                </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4 text-center">
-            <div class="profile">
-                <a href="../Classroom/Index"><img src="~/img/classroom.jpg" class="img-responsive" /></a>
-                <!--<h1 style="text-decoration-style:none">@Html.ActionLink("Classroom ", "../Classroom/Index")</h1>-->
-                </div>
-        </div>
-
-        <div class="col-md-4 text-center">
-            <div class="profile">
-                <a href="../Students/StudentView"><img src="~/img/labb.jpg" class="img-responsive" /></a>
-                <!--<h1 style="text-decoration-style:none">@Html.ActionLink("Lab Management ", "../Students/StudentView")</h1>-->
-                </div>
-                </div>
-
-                <div class="col-md-4 text-center">
-                    <div class="profile">
-                        <a href="../Students/StudentView"><img src="~/img/aa.jpg" class="img-responsive" /></a>
-                        <!--<h1 style="text-decoration-style:none">@Html.ActionLink("Other ", "../Students/StudentView")</h1>-->
-                    </div>
+            <div class="col-md-4 text-center">
+                <div class="profile">
+                    <a href="../Subjects/mainSub"><img src="~/img/subject.jpg" class="img-responsive" /></a>
+                    <!--<h1 style="text-decoration-style:none">@Html.ActionLink("Subject ", "../Subjects/mainSub")</h1>-->
                 </div>
             </div>
         </div>
-    </section>
-    <!-----------testiorial section end----------->
+
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <div class="profile">
+                    <a href="../Tutes/Index"><img src="~/img/tute.jpg" class="img-responsive" /></a>
+                    <!--<h1 style="text-decoration-style:none">@Html.ActionLink("Tute ", "../Tutes/Index")</h1>-->
+                </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <div class="profile">
+                    <a href="../FinanceManager/FinanceManagerHome"><img src="~/img/finance.jpg" class="img-responsive" /></a>
+                    <!--<h1 style="text-decoration-style:none">@Html.ActionLink("Finance ", "../FinanceManager/FinanceManagerHome")</h1>-->
+                </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <div class="profile">
+                    <a href="../Teacher/TeacherView"><img src="~/img/teacher.jpg" class="img-responsive" /></a>
+                    <!--<h1 style="text-decoration-style:none">@Html.ActionLink("Teacher ", "../Teacher/TeacherView")</h1>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <div class="profile">
+                    <a href="../Classroom/Index"><img src="~/img/classroom.jpg" class="img-responsive" /></a>
+                    <!--<h1 style="text-decoration-style:none">@Html.ActionLink("Classroom ", "../Classroom/Index")</h1>-->
+                </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <div class="profile">
+                    <a href="../Students/StudentView"><img src="~/img/labb.jpg" class="img-responsive" /></a>
+                    <!--<h1 style="text-decoration-style:none">@Html.ActionLink("Lab Management ", "../Students/StudentView")</h1>-->
+                </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <div class="profile">
+                    <a href="../Students/StudentView"><img src="~/img/aa.jpg" class="img-responsive" /></a>
+                    <!--<h1 style="text-decoration-style:none">@Html.ActionLink("Other ", "../Students/StudentView")</h1>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-----------testiorial section end----------->
