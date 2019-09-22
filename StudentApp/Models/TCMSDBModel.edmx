@@ -212,6 +212,8 @@
           <Property Name="t_address" Type="varchar" MaxLength="50" />
           <Property Name="contact_number" Type="char" MaxLength="10" />
           <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="fees" Type="int" />
+          <Property Name="noStudents" Type="int" />
         </EntityType>
         <EntityType Name="tutes">
           <Key>
@@ -253,6 +255,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__emp_atten__emp_i__65F62111">
+          <End Role="employees" Type="Self.employees" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="emp_attendence" Type="Self.emp_attendence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees">
+              <PropertyRef Name="emp_id" />
+            </Principal>
+            <Dependent Role="emp_attendence">
+              <PropertyRef Name="emp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__marksInfo__e_id__17C286CF">
           <End Role="exams" Type="Self.exams" Multiplicity="0..1" />
           <End Role="marksInfo" Type="Self.marksInfo" Multiplicity="*" />
@@ -265,8 +281,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__marksInfo__stu_i__18B6AB08">
-          <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+        <Association Name="FK__marksInfo__stu_i__3FD07829">
+          <End Role="Students" Type="Self.Students" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="marksInfo" Type="Self.marksInfo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Students">
@@ -301,8 +319,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__student_a__stu_i__19AACF41">
-          <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+        <Association Name="FK__student_a__stu_i__2CBDA3B5">
+          <End Role="Students" Type="Self.Students" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="student_attendence" Type="Self.student_attendence" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Students">
@@ -390,11 +410,15 @@
             <End Role="labs" EntitySet="labs" />
             <End Role="computers" EntitySet="computers" />
           </AssociationSet>
+          <AssociationSet Name="FK__emp_atten__emp_i__65F62111" Association="Self.FK__emp_atten__emp_i__65F62111">
+            <End Role="employees" EntitySet="employees" />
+            <End Role="emp_attendence" EntitySet="emp_attendence" />
+          </AssociationSet>
           <AssociationSet Name="FK__marksInfo__e_id__17C286CF" Association="Self.FK__marksInfo__e_id__17C286CF">
             <End Role="exams" EntitySet="exams" />
             <End Role="marksInfo" EntitySet="marksInfo" />
           </AssociationSet>
-          <AssociationSet Name="FK__marksInfo__stu_i__18B6AB08" Association="Self.FK__marksInfo__stu_i__18B6AB08">
+          <AssociationSet Name="FK__marksInfo__stu_i__3FD07829" Association="Self.FK__marksInfo__stu_i__3FD07829">
             <End Role="Students" EntitySet="Students" />
             <End Role="marksInfo" EntitySet="marksInfo" />
           </AssociationSet>
@@ -406,7 +430,7 @@
             <End Role="computers" EntitySet="computers" />
             <End Role="repairs" EntitySet="repairs" />
           </AssociationSet>
-          <AssociationSet Name="FK__student_a__stu_i__19AACF41" Association="Self.FK__student_a__stu_i__19AACF41">
+          <AssociationSet Name="FK__student_a__stu_i__2CBDA3B5" Association="Self.FK__student_a__stu_i__2CBDA3B5">
             <End Role="Students" EntitySet="Students" />
             <End Role="student_attendence" EntitySet="student_attendence" />
           </AssociationSet>
@@ -456,15 +480,6 @@
           <NavigationProperty Name="lab" Relationship="Self.FK__computer__LabNo__04E4BC85" FromRole="computer" ToRole="lab" />
           <NavigationProperty Name="repairs" Relationship="Self.FK__repair__MachineN__07C12930" FromRole="computer" ToRole="repair" />
         </EntityType>
-        <EntityType Name="emp_attendence">
-          <Key>
-            <PropertyRef Name="att_id" />
-          </Key>
-          <Property Name="att_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="date" Type="DateTime" Precision="3" />
-          <Property Name="emp_id" Type="Int32" />
-          <NavigationProperty Name="employee" Relationship="Self.FK__emp_atten__emp_i__5FB337D6" FromRole="emp_attendence" ToRole="employee" />
-        </EntityType>
         <EntityType Name="employee">
           <Key>
             <PropertyRef Name="emp_id" />
@@ -475,7 +490,7 @@
           <Property Name="birthday" Type="DateTime" Precision="3" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="contact_num" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="emp_attendence" Relationship="Self.FK__emp_atten__emp_i__5FB337D6" FromRole="employee" ToRole="emp_attendence" />
+          <NavigationProperty Name="emp_attendence" Relationship="TMSDBModel.FK__emp_atten__emp_i__65F62111" FromRole="employee" ToRole="emp_attendence" />
         </EntityType>
         <EntityType Name="exam">
           <Key>
@@ -579,6 +594,8 @@
           <Property Name="contact_number" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tutes" Relationship="Self.FK__tute__t_id__412EB0B6" FromRole="teacher" ToRole="tute" />
+          <Property Name="fees" Type="Int32" />
+          <Property Name="noStudents" Type="Int32" />
         </EntityType>
         <EntityType Name="tute">
           <Key>
@@ -623,18 +640,6 @@
             </Principal>
             <Dependent Role="repair">
               <PropertyRef Name="MachineNO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__emp_atten__emp_i__5FB337D6">
-          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
-          <End Role="emp_attendence" Type="Self.emp_attendence" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="employee">
-              <PropertyRef Name="emp_id" />
-            </Principal>
-            <Dependent Role="emp_attendence">
-              <PropertyRef Name="emp_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -717,7 +722,6 @@
         <EntityContainer Name="TCMSDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="classrooms" EntityType="Self.classroom" />
           <EntitySet Name="computers" EntityType="Self.computer" />
-          <EntitySet Name="emp_attendence" EntityType="Self.emp_attendence" />
           <EntitySet Name="employees" EntityType="Self.employee" />
           <EntitySet Name="exams" EntityType="Self.exam" />
           <EntitySet Name="fund_info" EntityType="Self.fund_info" />
@@ -737,10 +741,6 @@
           <AssociationSet Name="FK__repair__MachineN__07C12930" Association="Self.FK__repair__MachineN__07C12930">
             <End Role="computer" EntitySet="computers" />
             <End Role="repair" EntitySet="repairs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__emp_atten__emp_i__5FB337D6" Association="Self.FK__emp_atten__emp_i__5FB337D6">
-            <End Role="employee" EntitySet="employees" />
-            <End Role="emp_attendence" EntitySet="emp_attendence" />
           </AssociationSet>
           <AssociationSet Name="FK__subject_e__exam___5812160E" Association="Self.FK__subject_e__exam___5812160E">
             <End Role="exam" EntitySet="exams" />
@@ -793,6 +793,11 @@
           <AssociationSet Name="FK__student_a__stu_i__19AACF41" Association="TMSDBModel.FK__student_a__stu_i__19AACF41">
             <End Role="Student" EntitySet="Students" />
             <End Role="student_attendence" EntitySet="student_attendence" />
+          </AssociationSet>
+          <EntitySet Name="emp_attendence" EntityType="TMSDBModel.emp_attendence" />
+          <AssociationSet Name="FK__emp_atten__emp_i__65F62111" Association="TMSDBModel.FK__emp_atten__emp_i__65F62111">
+            <End Role="employee" EntitySet="employees" />
+            <End Role="emp_attendence" EntitySet="emp_attendence" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Allocation">
@@ -928,6 +933,29 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="emp_attendence">
+          <Key>
+            <PropertyRef Name="att_id" />
+          </Key>
+          <Property Name="att_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="emp_id" Type="Int32" />
+          <NavigationProperty Name="employee" Relationship="TMSDBModel.FK__emp_atten__emp_i__65F62111" FromRole="emp_attendence" ToRole="employee" />
+        </EntityType>
+        <Association Name="FK__emp_atten__emp_i__65F62111">
+          <End Type="TMSDBModel.employee" Role="employee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TMSDBModel.emp_attendence" Role="emp_attendence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="emp_id" />
+            </Principal>
+            <Dependent Role="emp_attendence">
+              <PropertyRef Name="emp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -956,15 +984,6 @@
           <ScalarProperty Name="PowerSupply_ID" ColumnName="PowerSupply_ID" />
           <ScalarProperty Name="RAM_Capacity" ColumnName="RAM_Capacity" />
           <ScalarProperty Name="HDD_Capacity" ColumnName="HDD_Capacity" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="emp_attendence">
-      <EntityTypeMapping TypeName="IsTypeOf(TMSDBModel.emp_attendence)">
-        <MappingFragment StoreEntitySet="emp_attendence">
-          <ScalarProperty Name="att_id" ColumnName="att_id" />
-          <ScalarProperty Name="date" ColumnName="date" />
-          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1063,7 +1082,9 @@
     <EntitySetMapping Name="teachers">
       <EntityTypeMapping TypeName="IsTypeOf(TMSDBModel.teacher)">
         <MappingFragment StoreEntitySet="teachers">
-          <ScalarProperty Name="t_id" ColumnName="t_id" />
+          <ScalarProperty Name="noStudents" ColumnName="noStudents" />
+                <ScalarProperty Name="fees" ColumnName="fees" />
+                <ScalarProperty Name="t_id" ColumnName="t_id" />
           <ScalarProperty Name="full_name" ColumnName="full_name" />
           <ScalarProperty Name="school" ColumnName="school" />
           <ScalarProperty Name="division" ColumnName="division" />
@@ -1186,6 +1207,15 @@
             <EntityTypeMapping TypeName="TMSDBModel.student_attendence">
               <MappingFragment StoreEntitySet="student_attendence">
                 <ScalarProperty Name="stu_id" ColumnName="stu_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="att_id" ColumnName="att_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emp_attendence">
+            <EntityTypeMapping TypeName="TMSDBModel.emp_attendence">
+              <MappingFragment StoreEntitySet="emp_attendence">
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="att_id" ColumnName="att_id" />
               </MappingFragment>

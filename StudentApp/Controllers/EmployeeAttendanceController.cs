@@ -121,8 +121,8 @@ namespace StudentApp.Controllers
 
         public ActionResult seeAttendance(String id)
         {
-            ViewBag.toDate = (from r in _db.emp_attendence
-                              select r.emp_id.ToString()).Distinct();
+            //ViewBag.toDate = (from r in _db.emp_attendence
+            //                  select r.emp_id.ToString()).Distinct();
 
 
             var employeeAttend = from emp in _db.emp_attendence select emp;

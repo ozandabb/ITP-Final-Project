@@ -7,7 +7,6 @@
       <Diagram DiagramId="51ece126179148f0963cddf21c1b963e" Name="Diagram1" ZoomLevel="67">
         <EntityTypeShape EntityType="TMSDBModel.classroom" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TMSDBModel.computer" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TMSDBModel.emp_attendence" Width="1.5" PointX="13" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TMSDBModel.employee" Width="1.5" PointX="10.75" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="TMSDBModel.exam" Width="1.5" PointX="3.75" PointY="14.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TMSDBModel.fund_info" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
@@ -22,7 +21,6 @@
         <EntityTypeShape EntityType="TMSDBModel.user" Width="1.5" PointX="11.375" PointY="11.125" IsExpanded="true" />
         <AssociationConnector Association="TMSDBModel.FK__computer__LabNo__04E4BC85" ManuallyRouted="false" />
         <AssociationConnector Association="TMSDBModel.FK__repair__MachineN__07C12930" ManuallyRouted="false" />
-        <AssociationConnector Association="TMSDBModel.FK__emp_atten__emp_i__5FB337D6" ManuallyRouted="false" />
         <AssociationConnector Association="TMSDBModel.FK__subject_e__exam___5812160E" ManuallyRouted="false" />
         <AssociationConnector Association="TMSDBModel.FK__student_t__st_id__4F7CD00D" ManuallyRouted="false" />
         <AssociationConnector Association="TMSDBModel.FK__student_t__tute___5070F446" ManuallyRouted="false" />
@@ -42,6 +40,8 @@
         <AssociationConnector Association="TMSDBModel.FK__marksInfo__sub_i__16CE6296" />
         <EntityTypeShape EntityType="TMSDBModel.student_attendence" Width="1.5" PointX="5.25" PointY="21" />
         <AssociationConnector Association="TMSDBModel.FK__student_a__stu_i__19AACF41" />
+        <EntityTypeShape EntityType="TMSDBModel.emp_attendence" Width="1.5" PointX="13" PointY="5.25" />
+        <AssociationConnector Association="TMSDBModel.FK__emp_atten__emp_i__65F62111" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

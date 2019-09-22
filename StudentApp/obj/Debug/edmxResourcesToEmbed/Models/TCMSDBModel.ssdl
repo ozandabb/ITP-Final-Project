@@ -207,6 +207,8 @@
     <Property Name="t_address" Type="varchar" MaxLength="50" />
     <Property Name="contact_number" Type="char" MaxLength="10" />
     <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="fees" Type="int" />
+    <Property Name="noStudents" Type="int" />
   </EntityType>
   <EntityType Name="tutes">
     <Key>
@@ -248,6 +250,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__emp_atten__emp_i__65F62111">
+    <End Role="employees" Type="Self.employees" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="emp_attendence" Type="Self.emp_attendence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employees">
+        <PropertyRef Name="emp_id" />
+      </Principal>
+      <Dependent Role="emp_attendence">
+        <PropertyRef Name="emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__marksInfo__e_id__17C286CF">
     <End Role="exams" Type="Self.exams" Multiplicity="0..1" />
     <End Role="marksInfo" Type="Self.marksInfo" Multiplicity="*" />
@@ -260,8 +276,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__marksInfo__stu_i__18B6AB08">
-    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+  <Association Name="FK__marksInfo__stu_i__3FD07829">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="marksInfo" Type="Self.marksInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Students">
@@ -296,8 +314,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__student_a__stu_i__19AACF41">
-    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+  <Association Name="FK__student_a__stu_i__2CBDA3B5">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="student_attendence" Type="Self.student_attendence" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Students">
@@ -385,11 +405,15 @@
       <End Role="labs" EntitySet="labs" />
       <End Role="computers" EntitySet="computers" />
     </AssociationSet>
+    <AssociationSet Name="FK__emp_atten__emp_i__65F62111" Association="Self.FK__emp_atten__emp_i__65F62111">
+      <End Role="employees" EntitySet="employees" />
+      <End Role="emp_attendence" EntitySet="emp_attendence" />
+    </AssociationSet>
     <AssociationSet Name="FK__marksInfo__e_id__17C286CF" Association="Self.FK__marksInfo__e_id__17C286CF">
       <End Role="exams" EntitySet="exams" />
       <End Role="marksInfo" EntitySet="marksInfo" />
     </AssociationSet>
-    <AssociationSet Name="FK__marksInfo__stu_i__18B6AB08" Association="Self.FK__marksInfo__stu_i__18B6AB08">
+    <AssociationSet Name="FK__marksInfo__stu_i__3FD07829" Association="Self.FK__marksInfo__stu_i__3FD07829">
       <End Role="Students" EntitySet="Students" />
       <End Role="marksInfo" EntitySet="marksInfo" />
     </AssociationSet>
@@ -401,7 +425,7 @@
       <End Role="computers" EntitySet="computers" />
       <End Role="repairs" EntitySet="repairs" />
     </AssociationSet>
-    <AssociationSet Name="FK__student_a__stu_i__19AACF41" Association="Self.FK__student_a__stu_i__19AACF41">
+    <AssociationSet Name="FK__student_a__stu_i__2CBDA3B5" Association="Self.FK__student_a__stu_i__2CBDA3B5">
       <End Role="Students" EntitySet="Students" />
       <End Role="student_attendence" EntitySet="student_attendence" />
     </AssociationSet>

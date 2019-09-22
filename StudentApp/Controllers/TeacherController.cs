@@ -44,11 +44,12 @@ namespace StudentApp.Controllers
             {
                 _db.SaveChanges();
             }
-            catch {
+            catch
+            {
 
                 Console.WriteLine();
             }
-            
+
 
             return RedirectToAction("TeacherView");
         }
@@ -106,13 +107,46 @@ namespace StudentApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
-            
-                teacher teacherToDelete = _db.teachers.Find(id);
-                _db.teachers.Remove(teacherToDelete);
+
+            teacher teacherToDelete = _db.teachers.Find(id);
+            _db.teachers.Remove(teacherToDelete);
+            _db.SaveChanges();
+            return RedirectToAction("TeacherView");
+
+
+        }
+
+        public ActionResult paymentAdd(int id)
+        {
+
+            var teacherToEdit = (from m in _db.teachers
+                                 where m.t_id == id
+                                 select m).First();
+            return View(teacherToEdit);
+        }
+
+        //POST: Teacher/
+        [HttpPost]
+        public ActionResult paymentAdd(teacher tpay)
+        {
+            try
+            {
+                var originalTeacher = (from m in _db.teachers
+                                       where m.t_id == tpay.t_id
+                                       select m).First();
+
+                if (!ModelState.IsValid)
+                    return View(originalTeacher);
+
+                _db.Entry(originalTeacher).CurrentValues.SetValues(tpay);
                 _db.SaveChanges();
+
                 return RedirectToAction("TeacherView");
-           
-            
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

@@ -27,7 +27,6 @@ namespace StudentApp.Models
     
         public virtual DbSet<classroom> classrooms { get; set; }
         public virtual DbSet<computer> computers { get; set; }
-        public virtual DbSet<emp_attendence> emp_attendence { get; set; }
         public virtual DbSet<employee> employees { get; set; }
         public virtual DbSet<exam> exams { get; set; }
         public virtual DbSet<fund_info> fund_info { get; set; }
@@ -48,5 +47,6 @@ namespace StudentApp.Models
         public virtual DbSet<classroom1> classroom1 { get; set; }
         public virtual DbSet<marksInfo> marksInfoes { get; set; }
         public virtual DbSet<student_attendence> student_attendence { get; set; }
+        public virtual DbSet<emp_attendence> emp_attendence { get; set; }
     }
 }

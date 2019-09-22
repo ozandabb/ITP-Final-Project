@@ -26,15 +26,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="emp_attendence">
-      <EntityTypeMapping TypeName="IsTypeOf(TMSDBModel.emp_attendence)">
-        <MappingFragment StoreEntitySet="emp_attendence">
-          <ScalarProperty Name="att_id" ColumnName="att_id" />
-          <ScalarProperty Name="date" ColumnName="date" />
-          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="employees">
       <EntityTypeMapping TypeName="IsTypeOf(TMSDBModel.employee)">
         <MappingFragment StoreEntitySet="employees">
@@ -130,6 +121,8 @@
     <EntitySetMapping Name="teachers">
       <EntityTypeMapping TypeName="IsTypeOf(TMSDBModel.teacher)">
         <MappingFragment StoreEntitySet="teachers">
+          <ScalarProperty Name="noStudents" ColumnName="noStudents" />
+          <ScalarProperty Name="fees" ColumnName="fees" />
           <ScalarProperty Name="t_id" ColumnName="t_id" />
           <ScalarProperty Name="full_name" ColumnName="full_name" />
           <ScalarProperty Name="school" ColumnName="school" />
@@ -253,6 +246,15 @@
       <EntityTypeMapping TypeName="TMSDBModel.student_attendence">
         <MappingFragment StoreEntitySet="student_attendence">
           <ScalarProperty Name="stu_id" ColumnName="stu_id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="att_id" ColumnName="att_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="emp_attendence">
+      <EntityTypeMapping TypeName="TMSDBModel.emp_attendence">
+        <MappingFragment StoreEntitySet="emp_attendence">
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
           <ScalarProperty Name="date" ColumnName="date" />
           <ScalarProperty Name="att_id" ColumnName="att_id" />
         </MappingFragment>

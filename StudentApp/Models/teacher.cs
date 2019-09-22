@@ -27,6 +27,8 @@ namespace StudentApp.Models
         public string t_address { get; set; }
         public string contact_number { get; set; }
         public string email { get; set; }
+        public Nullable<int> fees { get; set; }
+        public Nullable<int> noStudents { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tute> tutes { get; set; }
