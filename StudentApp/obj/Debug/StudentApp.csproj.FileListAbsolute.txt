@@ -1123,3 +1123,8 @@ F:\Osandage version eka\Osandage version 4\ITP-Final-Project\StudentApp\obj\Debu
 F:\Osandage version eka\Osandage version 4\ITP-Final-Project\StudentApp\obj\Debug\StudentApp.csproj.CopyComplete
 F:\Osandage version eka\Osandage version 4\ITP-Final-Project\StudentApp\obj\Debug\StudentApp.dll
 F:\Osandage version eka\Osandage version 4\ITP-Final-Project\StudentApp\obj\Debug\StudentApp.pdb
+F:\Osandage version eka\Osandage version 4\ITP-Final-Project\StudentApp\bin\Microsoft.ReportViewer.WebForms.dll
+F:\Osandage version eka\Osandage version 4\ITP-Final-Project\StudentApp\bin\Microsoft.ReportViewer.Common.dll
+F:\Osandage version eka\Osandage version 4\ITP-Final-Project\StudentApp\bin\Microsoft.ReportViewer.WebForms.xml
+F:\Osandage version eka\Osandage version 4\ITP-Final-Project\StudentApp\obj\Debug\RdlCompile.cache
+F:\Osandage version eka\Osandage version 4\ITP-Final-Project\StudentApp\obj\Debug\RdlCompile.compiled

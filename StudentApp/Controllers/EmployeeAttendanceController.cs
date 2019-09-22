@@ -1,4 +1,5 @@
-﻿using StudentApp.Models;
+﻿using Microsoft.Reporting.WebForms;
+using StudentApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -143,6 +144,34 @@ namespace StudentApp.Controllers
             return View(employeeAttend);
 
             //return View(model);
+        }
+
+        public ActionResult Reports(String ReportType)
+        {
+            LocalReport localReport = new LocalReport();
+            localReport.ReportPath = Server.MapPath("~/Reports/EmployeeAttReport.rdlc");
+
+            ReportDataSource reportDataSource = new ReportDataSource();
+            reportDataSource.Name = "EmployeeAttDataSet";
+            reportDataSource.Value = _db.emp_attendence.Where(e => e.date == DateTime.Today).ToList();
+            localReport.DataSources.Add(reportDataSource);
+            String reportType = ReportType;
+            String mimeType;
+            String encoding;
+            String fileNameExtension;
+
+            if (reportType == "PDF") {
+                fileNameExtension = "PDF";
+            }
+
+            string[] streams;
+            Warning[] warnings;
+            byte[] renderedByte;
+            renderedByte = localReport.Render(reportType, "", out mimeType, out encoding, out fileNameExtension,
+                out streams, out warnings);
+            Response.AddHeader("content-disposition", "attachment:filename= emp_att_report." + fileNameExtension);
+            return File(renderedByte, fileNameExtension);
+            //return View();
         }
     }
 }
