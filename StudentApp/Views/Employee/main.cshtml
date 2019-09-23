@@ -92,7 +92,9 @@
     </a>
 
     <div class="column" style="background-color:#c56cf0; text-align: center" id="ani">
-
+        <h3 style="margin-left: auto">Generate Report</h3><br />
+        @Html.ActionLink("<h2>Generate Report in PDF<h2>", "Reports", new { ReportType = "PDF" })
+        @Html.ActionLink("<h2>Generate Report in Excel</h2>", "Reports", new { ReportType = "Excel" })
     </div>
-
+    
 </div>

@@ -155,6 +155,11 @@
     <Compile Include="Controllers\SubjectsController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Controllers\TutesController.cs" />
+    <Compile Include="DBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -322,6 +327,17 @@
     <Content Include="Models\TCMSDBModel.edmx.diagram">
       <DependentUpon>TCMSDBModel.edmx</DependentUpon>
     </Content>
+    <Content Include="DBDataSet.xsc">
+      <DependentUpon>DBDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="DBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DBDataSet.xss">
+      <DependentUpon>DBDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -479,6 +495,8 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\EmployeeAttReport.rdlc" />
+    <EmbeddedResource Include="Reports\EmployeeReport.rdlc" />
+    <EmbeddedResource Include="Reports\StudentsReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

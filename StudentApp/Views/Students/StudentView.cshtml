@@ -96,6 +96,8 @@
 
 <br />
 
+@Html.ActionLink("Generate Report in PDF", "Reports", new { ReportType = "PDF" }) <br />
+@Html.ActionLink("Generate Report in Excel", "Reports", new { ReportType = "Excel" })
 
 <div style="text-align:right">
     @using (Html.BeginForm("StudentView", "Students", FormMethod.Get))
