@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList.Mvc;
 using PagedList;
+using Microsoft.Reporting.WebForms;
 
 namespace StudentApp.Controllers
 {
@@ -158,6 +159,39 @@ namespace StudentApp.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult Reports(String ReportType)
+        {
+            LocalReport localReport = new LocalReport();
+            localReport.ReportPath = Server.MapPath("~/Reports/TeachersReport.rdlc");
+
+            ReportDataSource reportDataSource = new ReportDataSource();
+            reportDataSource.Name = "TeachersDataSet";
+            reportDataSource.Value = _db.teachers.ToList();
+            localReport.DataSources.Add(reportDataSource);
+            String reportType = ReportType;
+            String mimeType;
+            String encoding;
+            String fileNameExtension;
+
+            if (reportType == "PDF")
+            {
+                fileNameExtension = "PDF";
+            }
+            else if (reportType == "Excel")
+            {
+                fileNameExtension = "xlsx";
+            }
+
+            string[] streams;
+            Warning[] warnings;
+            byte[] renderedByte;
+            renderedByte = localReport.Render(reportType, "", out mimeType, out encoding, out fileNameExtension,
+                out streams, out warnings);
+            Response.AddHeader("content-disposition", "attachment:filename= teachers_report." + fileNameExtension);
+            return File(renderedByte, fileNameExtension);
+            //return View();
         }
     }
 }

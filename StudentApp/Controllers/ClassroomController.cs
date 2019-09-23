@@ -1,4 +1,5 @@
-﻿using StudentApp.Models;
+﻿using Microsoft.Reporting.WebForms;
+using StudentApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -183,6 +184,37 @@ namespace TMSApp.Controllers
             return View(classroom);
         }
 
+        public ActionResult Reports(String ReportType)
+        {
+            LocalReport localReport = new LocalReport();
+            localReport.ReportPath = Server.MapPath("~/Reports/ClassRoomReport.rdlc");
 
+            ReportDataSource reportDataSource = new ReportDataSource();
+            reportDataSource.Name = "ClassRoomDataSet";
+            reportDataSource.Value = _db.classrooms.ToList();
+            localReport.DataSources.Add(reportDataSource);
+            String reportType = ReportType;
+            String mimeType;
+            String encoding;
+            String fileNameExtension;
+
+            if (reportType == "PDF")
+            {
+                fileNameExtension = "PDF";
+            }
+            else if (reportType == "Excel")
+            {
+                fileNameExtension = "xlsx";
+            }
+
+            string[] streams;
+            Warning[] warnings;
+            byte[] renderedByte;
+            renderedByte = localReport.Render(reportType, "", out mimeType, out encoding, out fileNameExtension,
+                out streams, out warnings);
+            Response.AddHeader("content-disposition", "attachment:filename= classRoom_report." + fileNameExtension);
+            return File(renderedByte, fileNameExtension);
+            //return View();
+        }
     }
 }

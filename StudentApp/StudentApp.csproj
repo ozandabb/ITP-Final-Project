@@ -550,9 +550,13 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\ClassRoomReport.rdlc" />
     <EmbeddedResource Include="Reports\EmployeeAttReport.rdlc" />
     <EmbeddedResource Include="Reports\EmployeeReport.rdlc" />
+    <EmbeddedResource Include="Reports\MarksReport.rdlc" />
     <EmbeddedResource Include="Reports\StudentsReport.rdlc" />
+    <EmbeddedResource Include="Reports\SubjectsReport.rdlc" />
+    <EmbeddedResource Include="Reports\TeachersReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -70,9 +70,11 @@
     <div class="btn-group">
         <button class="button"> <img src="~/img/sub1.png" width="20px" /> @Html.ActionLink("Add Subject   ", "Create")</button>
         <button class="button"><img src="~/img/homie.png" width="20px" />@Html.ActionLink(" Home ", "mainSub")</button>
-        <button class="button"><img src="~/img/s6.png" width="20px" />@Html.ActionLink(" Logout ", "filterBy")</button>
+        <button class="button">
+            <img src="~/img/s5.png" width="20px" />@Html.ActionLink("Generate Subject Report", "Reports", new { ReportType = "PDF" })</button>
+            <button class="button"><img src="~/img/s6.png" width="20px" />@Html.ActionLink(" Logout ", "filterBy")</button>
 
-    </div>
+</div>
 </center>
 
 <p>

@@ -68,6 +68,9 @@
     <div class="btn-group">
         <button class="button"> <img src="~/img/sub1.png" width="20px" /> @Html.ActionLink("Add Teacher", "Create")</button>
         <button class="button"><img src="~/img/s6.png" width="20px" />@Html.ActionLink(" Logout ", "filterBy")</button>
+        <button class="button">
+            <img src="~/img/s5.png" width="20px" />@Html.ActionLink("Generate Subject Report", "Reports", new { ReportType = "PDF" })
+        </button>
     </div>
 </center>
 
