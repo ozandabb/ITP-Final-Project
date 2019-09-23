@@ -11,15 +11,18 @@ namespace StudentApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class repair
     {
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Machine Number")]
         public int MachineNO { get; set; }
         public int repair_id { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Enter Repair Cost")]
         public Nullable<double> cost { get; set; }
+        [Required]
         public string description { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "The Repair Date field is required")]
         public Nullable<System.DateTime> repair_date { get; set; }
-    
-        public virtual computer computer { get; set; }
     }
 }

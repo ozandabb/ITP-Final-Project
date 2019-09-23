@@ -5,37 +5,35 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-
-namespace LabManagement.Controllers
+namespace StudentApp.Controllers
 {
     public class ComputerLabController : Controller
     {
-        // GET: Home
+        // GET: Lab
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult GetMachineDetails()
+        public ActionResult GetLabDetails()
         {
             using (TCMSDBEntities tm = new TCMSDBEntities())
             {
-                var machines = tm.computers.OrderBy(a => a.MachineNO).ToList();
-                return Json(new { data = machines }, JsonRequestBehavior.AllowGet);
+                var labs = tm.labs.OrderBy(a => a.LabNo).ToList();
+                return Json(new { data = labs }, JsonRequestBehavior.AllowGet);
             }
         }
-
         [HttpGet]
         public ActionResult Save(int id)
         {
             using (TCMSDBEntities dc = new TCMSDBEntities())
             {
 
-                var v = dc.computers.Where(a => a.MachineNO == id).FirstOrDefault();
+                var v = dc.labs.Where(a => a.LabNo == id).FirstOrDefault();
                 return View(v);
             }
         }
         [HttpPost]
-        public ActionResult Save(computer com)
+        public ActionResult Save(lab com)
         {
             bool status = false;
             if (ModelState.IsValid)
@@ -43,37 +41,41 @@ namespace LabManagement.Controllers
                 using (TCMSDBEntities dc = new TCMSDBEntities())
                 {
 
-                    if (com.MachineNO > 0)
+                    if (com.LabNo > 0)
                     {
                         // Edit
-                        var v = dc.computers.Where(a => a.MachineNO == com.MachineNO).FirstOrDefault();
+                        var v = dc.labs.Where(a => a.LabNo == com.LabNo).FirstOrDefault();
                         if (v != null)
                         {
-                            v.MachineNO = com.MachineNO;
-                            v.Processor_Type = com.Processor_Type;
-                            v.HDD_Capacity = com.HDD_Capacity;
-                            v.RAM_Capacity = com.RAM_Capacity;
-                            v.PowerSupply_ID = com.PowerSupply_ID;
-                            v.Motherboard_ID = com.Motherboard_ID;
                             v.LabNo = com.LabNo;
+                            v.floor = com.floor;
                         }
                         else
                         {
 
                             //Save
-                            dc.computers.Add(com);
+                            dc.labs.Add(com);
 
                         }
 
                     }
+                    try
+                    {
 
-                    dc.SaveChanges();
-                    status = true;
+                        dc.SaveChanges();
+                        status = true;
 
+                    }
+                    catch (Exception)
+                    {
+                        status = true;
+                        return new JsonResult { Data = new { status = status, message = "Something Wrong!" } };
+                        throw;
+                    }
                 }
             }
             return new JsonResult { Data = new { status = status, message = "Saved Successfully" } };
-            //return Json(new { status = true, message = "Saved Successfully" }, JsonRequestBehavior.AllowGet);
+
         }
 
 
@@ -84,8 +86,8 @@ namespace LabManagement.Controllers
 
             using (TCMSDBEntities dc = new TCMSDBEntities())
             {
-                computer aa = new computer();
-                var v = dc.computers.Where(a => a.MachineNO == id).FirstOrDefault();
+                lab aa = new lab();
+                var v = dc.labs.Where(a => a.LabNo == id).FirstOrDefault();
                 if (v != null)
                 {
                     return View(v);
@@ -104,16 +106,15 @@ namespace LabManagement.Controllers
             bool status = false;
             using (TCMSDBEntities dc = new TCMSDBEntities())
             {
-                var v = dc.computers.Where(a => a.MachineNO == id).FirstOrDefault();
+                var v = dc.labs.Where(a => a.LabNo == id).FirstOrDefault();
                 if (v != null)
                 {
-                    dc.computers.Remove(v);
+                    dc.labs.Remove(v);
                     dc.SaveChanges();
                     status = true;
                 }
             }
-            return new JsonResult { Data = new { status = status, message = "Computer Details Deleted Successfully" } };
+            return new JsonResult { Data = new { status = status, message = "Lab Details Deleted Successfully" } };
         }
     }
 }
-

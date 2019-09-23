@@ -5,36 +5,36 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-
-namespace LabManagement.Controllers
+namespace StudentApp.Controllers
 {
-    public class LabController : Controller
+    public class ComputerRepairController : Controller
     {
-        // GET: Lab
+        // GET: Repaire
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult GetLabDetails()
+        public ActionResult GetRepairDetails()
         {
             using (TCMSDBEntities tm = new TCMSDBEntities())
             {
-                var labs = tm.labs.OrderBy(a => a.LabNo).ToList();
-                return Json(new { data = labs }, JsonRequestBehavior.AllowGet);
+                var machines = tm.repairs.OrderBy(a => a.repair_id).ToList();
+                return Json(new { data = machines }, JsonRequestBehavior.AllowGet);
             }
         }
+
         [HttpGet]
         public ActionResult Save(int id)
         {
             using (TCMSDBEntities dc = new TCMSDBEntities())
             {
 
-                var v = dc.labs.Where(a => a.LabNo == id).FirstOrDefault();
+                var v = dc.repairs.Where(a => a.repair_id == id).FirstOrDefault();
                 return View(v);
             }
         }
         [HttpPost]
-        public ActionResult Save(lab com)
+        public ActionResult Save(repair com)
         {
             bool status = false;
             if (ModelState.IsValid)
@@ -42,32 +42,46 @@ namespace LabManagement.Controllers
                 using (TCMSDBEntities dc = new TCMSDBEntities())
                 {
 
-                    if (com.LabNo > 0)
+                    if (com.MachineNO > 0)
                     {
                         // Edit
-                        var v = dc.labs.Where(a => a.LabNo == com.LabNo).FirstOrDefault();
+                        var v = dc.repairs.Where(a => a.MachineNO == com.MachineNO).FirstOrDefault();
+
                         if (v != null)
                         {
-                            v.LabNo = com.LabNo;
-                            v.floor = com.floor;
+                            v.MachineNO = com.MachineNO;
+                            v.cost = com.cost;
+                            v.description = com.description;
+                            v.repair_date = com.repair_date;
+
                         }
                         else
                         {
 
                             //Save
-                            dc.labs.Add(com);
+                            dc.repairs.Add(com);
 
+                        }
+                        try
+                        {
+
+                            dc.SaveChanges();
+                            status = true;
+                        }
+                        catch (Exception)
+                        {
+                            status = true;
+                            return new JsonResult { Data = new { status = status, message = "Invalid Machine Number.Please Check Computer Details Page" } };
+                            throw;
                         }
 
                     }
 
-                    dc.SaveChanges();
-                    status = true;
-
                 }
+
             }
             return new JsonResult { Data = new { status = status, message = "Saved Successfully" } };
-
+            //return Json(new { status = true, message = "Saved Successfully" }, JsonRequestBehavior.AllowGet);
         }
 
 
@@ -78,8 +92,8 @@ namespace LabManagement.Controllers
 
             using (TCMSDBEntities dc = new TCMSDBEntities())
             {
-                lab aa = new lab();
-                var v = dc.labs.Where(a => a.LabNo == id).FirstOrDefault();
+                computer aa = new computer();
+                var v = dc.repairs.Where(a => a.repair_id == id).FirstOrDefault();
                 if (v != null)
                 {
                     return View(v);
@@ -98,15 +112,15 @@ namespace LabManagement.Controllers
             bool status = false;
             using (TCMSDBEntities dc = new TCMSDBEntities())
             {
-                var v = dc.labs.Where(a => a.LabNo == id).FirstOrDefault();
+                var v = dc.repairs.Where(a => a.repair_id == id).FirstOrDefault();
                 if (v != null)
                 {
-                    dc.labs.Remove(v);
+                    dc.repairs.Remove(v);
                     dc.SaveChanges();
                     status = true;
                 }
             }
-            return new JsonResult { Data = new { status = status, message = "Lab Details Deleted Successfully" } };
+            return new JsonResult { Data = new { status = status, message = "Repair Details Deleted Successfully" } };
         }
     }
 }

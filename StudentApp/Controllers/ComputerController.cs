@@ -5,21 +5,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace LabManagement.Controllers
+namespace StudentApp.Controllers
 {
-    public class RepairController : Controller
+    public class ComputerController : Controller
     {
-        // GET: Repaire
+        // GET: Home
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult GetRepairDetails()
+        public ActionResult GetMachineDetails()
         {
             using (TCMSDBEntities tm = new TCMSDBEntities())
             {
-                var machines = tm.repairs.OrderBy(a => a.repair_id).ToList();
-                return Json(new { data = machines }, JsonRequestBehavior.AllowGet);
+                var computers = tm.computers.OrderBy(a => a.MachineNO).ToList();
+                return Json(new { data = computers }, JsonRequestBehavior.AllowGet);
             }
         }
 
@@ -29,12 +29,12 @@ namespace LabManagement.Controllers
             using (TCMSDBEntities dc = new TCMSDBEntities())
             {
 
-                var v = dc.repairs.Where(a => a.repair_id == id).FirstOrDefault();
+                var v = dc.computers.Where(a => a.MachineNO == id).FirstOrDefault();
                 return View(v);
             }
         }
         [HttpPost]
-        public ActionResult Save(repair com)
+        public ActionResult Save(computer com)
         {
             bool status = false;
             if (ModelState.IsValid)
@@ -45,29 +45,40 @@ namespace LabManagement.Controllers
                     if (com.MachineNO > 0)
                     {
                         // Edit
-                        var v = dc.repairs.Where(a => a.repair_id == com.repair_id).FirstOrDefault();
+                        var v = dc.computers.Where(a => a.MachineNO == com.MachineNO).FirstOrDefault();
                         if (v != null)
                         {
                             v.MachineNO = com.MachineNO;
-                            v.cost = com.cost;
-                            v.description = com.description;
-                            v.repair_date = com.repair_date;
-
+                            v.Processor_Type = com.Processor_Type;
+                            v.HDD_Capacity = com.HDD_Capacity;
+                            v.RAM_Capacity = com.RAM_Capacity;
+                            v.PowerSupply_ID = com.PowerSupply_ID;
+                            v.Motherboard_ID = com.Motherboard_ID;
+                            v.LabNo = com.LabNo;
                         }
                         else
                         {
 
                             //Save
-                            dc.repairs.Add(com);
+                            dc.computers.Add(com);
 
                         }
 
+                    }
+                    try
+                    {
                         dc.SaveChanges();
                         status = true;
 
                     }
-                }
+                    catch (Exception)
+                    {
+                        status = true;
+                        return new JsonResult { Data = new { status = status, message = "Something Wrong!" } };
+                        throw;
+                    }
 
+                }
             }
             return new JsonResult { Data = new { status = status, message = "Saved Successfully" } };
             //return Json(new { status = true, message = "Saved Successfully" }, JsonRequestBehavior.AllowGet);
@@ -82,7 +93,7 @@ namespace LabManagement.Controllers
             using (TCMSDBEntities dc = new TCMSDBEntities())
             {
                 computer aa = new computer();
-                var v = dc.repairs.Where(a => a.repair_id == id).FirstOrDefault();
+                var v = dc.computers.Where(a => a.MachineNO == id).FirstOrDefault();
                 if (v != null)
                 {
                     return View(v);
@@ -101,16 +112,15 @@ namespace LabManagement.Controllers
             bool status = false;
             using (TCMSDBEntities dc = new TCMSDBEntities())
             {
-                var v = dc.repairs.Where(a => a.repair_id == id).FirstOrDefault();
+                var v = dc.computers.Where(a => a.MachineNO == id).FirstOrDefault();
                 if (v != null)
                 {
-                    dc.repairs.Remove(v);
+                    dc.computers.Remove(v);
                     dc.SaveChanges();
                     status = true;
                 }
             }
-            return new JsonResult { Data = new { status = status, message = "Repair Details Deleted Successfully" } };
+            return new JsonResult { Data = new { status = status, message = "Computer Details Deleted Successfully" } };
         }
     }
 }
-

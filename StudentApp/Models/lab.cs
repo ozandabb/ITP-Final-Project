@@ -11,19 +11,13 @@ namespace StudentApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class lab
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public lab()
-        {
-            this.computers = new HashSet<computer>();
-        }
-    
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Lab Number")]
         public int LabNo { get; set; }
-        public string floor { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<computer> computers { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Floor Number")]
+        public int floor { get; set; }
     }
 }

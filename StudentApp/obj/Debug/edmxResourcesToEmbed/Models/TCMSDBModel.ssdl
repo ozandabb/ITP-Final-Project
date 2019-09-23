@@ -45,7 +45,7 @@
     <Property Name="name" Type="varchar" MaxLength="20" />
     <Property Name="ac_nonac" Type="varchar" MaxLength="10" />
   </EntityType>
-  <EntityType Name="computers">
+  <EntityType Name="computer">
     <Key>
       <PropertyRef Name="MachineNO" />
     </Key>
@@ -102,12 +102,12 @@
     <Property Name="amount" Type="float" Nullable="false" />
     <Property Name="description" Type="varchar" MaxLength="60" Nullable="false" />
   </EntityType>
-  <EntityType Name="labs">
+  <EntityType Name="lab">
     <Key>
       <PropertyRef Name="LabNo" />
     </Key>
     <Property Name="LabNo" Type="int" Nullable="false" />
-    <Property Name="floor" Type="char" MaxLength="10" />
+    <Property Name="floor" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="marksInfo">
     <Key>
@@ -127,7 +127,7 @@
     <Property Name="title" Type="varchar" MaxLength="100" />
     <Property Name="descript" Type="varchar" MaxLength="200" />
   </EntityType>
-  <EntityType Name="repairs">
+  <EntityType Name="repair">
     <Key>
       <PropertyRef Name="repair_id" />
     </Key>
@@ -135,7 +135,7 @@
     <Property Name="repair_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="cost" Type="float" />
     <Property Name="description" Type="varchar" MaxLength="100" />
-    <Property Name="repair_date" Type="datetime" />
+    <Property Name="repair_date" Type="date" />
   </EntityType>
   <EntityType Name="student_attendence">
     <Key>
@@ -246,18 +246,6 @@
     <Property Name="Password_" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="IsActive_" Type="bit" Nullable="false" />
   </EntityType>
-  <Association Name="FK__computer__LabNo__04E4BC85">
-    <End Role="labs" Type="Self.labs" Multiplicity="1" />
-    <End Role="computers" Type="Self.computers" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="labs">
-        <PropertyRef Name="LabNo" />
-      </Principal>
-      <Dependent Role="computers">
-        <PropertyRef Name="LabNo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__emp_atten__emp_i__65F62111">
     <End Role="employees" Type="Self.employees" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -311,18 +299,6 @@
       </Principal>
       <Dependent Role="marksInfo">
         <PropertyRef Name="sub_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__repair__MachineN__07C12930">
-    <End Role="computers" Type="Self.computers" Multiplicity="1" />
-    <End Role="repairs" Type="Self.repairs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="computers">
-        <PropertyRef Name="MachineNO" />
-      </Principal>
-      <Dependent Role="repairs">
-        <PropertyRef Name="MachineNO" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -393,16 +369,16 @@
     <EntitySet Name="Bills" EntityType="Self.Bills" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="classroom" EntityType="Self.classroom" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="classrooms" EntityType="Self.classrooms" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="computers" EntityType="Self.computers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="computer" EntityType="Self.computer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="emp_attendence" EntityType="Self.emp_attendence" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="employees" EntityType="Self.employees" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="exams" EntityType="Self.exams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="fund_info" EntityType="Self.fund_info" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Invoices" EntityType="Self.Invoices" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="labs" EntityType="Self.labs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="lab" EntityType="Self.lab" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="marksInfo" EntityType="Self.marksInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="notify" EntityType="Self.notify" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="repairs" EntityType="Self.repairs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="repair" EntityType="Self.repair" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="student_attendence" EntityType="Self.student_attendence" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="student_subject" EntityType="Self.student_subject" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="student_tute" EntityType="Self.student_tute" Schema="dbo" store:Type="Tables" />
@@ -414,10 +390,6 @@
     <EntitySet Name="tutes" EntityType="Self.tutes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tutes1" EntityType="Self.Tutes1" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__computer__LabNo__04E4BC85" Association="Self.FK__computer__LabNo__04E4BC85">
-      <End Role="labs" EntitySet="labs" />
-      <End Role="computers" EntitySet="computers" />
-    </AssociationSet>
     <AssociationSet Name="FK__emp_atten__emp_i__65F62111" Association="Self.FK__emp_atten__emp_i__65F62111">
       <End Role="employees" EntitySet="employees" />
       <End Role="emp_attendence" EntitySet="emp_attendence" />
@@ -433,10 +405,6 @@
     <AssociationSet Name="FK__marksInfo__sub_i__7908F585" Association="Self.FK__marksInfo__sub_i__7908F585">
       <End Role="subjects" EntitySet="subjects" />
       <End Role="marksInfo" EntitySet="marksInfo" />
-    </AssociationSet>
-    <AssociationSet Name="FK__repair__MachineN__07C12930" Association="Self.FK__repair__MachineN__07C12930">
-      <End Role="computers" EntitySet="computers" />
-      <End Role="repairs" EntitySet="repairs" />
     </AssociationSet>
     <AssociationSet Name="FK__student_a__stu_i__2CBDA3B5" Association="Self.FK__student_a__stu_i__2CBDA3B5">
       <End Role="Students" EntitySet="Students" />

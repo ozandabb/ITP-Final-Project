@@ -13,19 +13,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="computers">
-      <EntityTypeMapping TypeName="IsTypeOf(TMSDBModel.computer)">
-        <MappingFragment StoreEntitySet="computers">
-          <ScalarProperty Name="MachineNO" ColumnName="MachineNO" />
-          <ScalarProperty Name="LabNo" ColumnName="LabNo" />
-          <ScalarProperty Name="Processor_Type" ColumnName="Processor_Type" />
-          <ScalarProperty Name="Motherboard_ID" ColumnName="Motherboard_ID" />
-          <ScalarProperty Name="PowerSupply_ID" ColumnName="PowerSupply_ID" />
-          <ScalarProperty Name="RAM_Capacity" ColumnName="RAM_Capacity" />
-          <ScalarProperty Name="HDD_Capacity" ColumnName="HDD_Capacity" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="employees">
       <EntityTypeMapping TypeName="IsTypeOf(TMSDBModel.employee)">
         <MappingFragment StoreEntitySet="employees">
@@ -53,25 +40,6 @@
           <ScalarProperty Name="epf_rate" ColumnName="epf_rate" />
           <ScalarProperty Name="etf_rate" ColumnName="etf_rate" />
           <ScalarProperty Name="amount" ColumnName="amount" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="labs">
-      <EntityTypeMapping TypeName="IsTypeOf(TMSDBModel.lab)">
-        <MappingFragment StoreEntitySet="labs">
-          <ScalarProperty Name="LabNo" ColumnName="LabNo" />
-          <ScalarProperty Name="floor" ColumnName="floor" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="repairs">
-      <EntityTypeMapping TypeName="IsTypeOf(TMSDBModel.repair)">
-        <MappingFragment StoreEntitySet="repairs">
-          <ScalarProperty Name="repair_id" ColumnName="repair_id" />
-          <ScalarProperty Name="MachineNO" ColumnName="MachineNO" />
-          <ScalarProperty Name="cost" ColumnName="cost" />
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="repair_date" ColumnName="repair_date" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -266,6 +234,38 @@
           <ScalarProperty Name="descript" ColumnName="descript" />
           <ScalarProperty Name="title" ColumnName="title" />
           <ScalarProperty Name="n_id" ColumnName="n_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="computers">
+      <EntityTypeMapping TypeName="TMSDBModel.computer">
+        <MappingFragment StoreEntitySet="computer">
+          <ScalarProperty Name="HDD_Capacity" ColumnName="HDD_Capacity" />
+          <ScalarProperty Name="RAM_Capacity" ColumnName="RAM_Capacity" />
+          <ScalarProperty Name="PowerSupply_ID" ColumnName="PowerSupply_ID" />
+          <ScalarProperty Name="Motherboard_ID" ColumnName="Motherboard_ID" />
+          <ScalarProperty Name="Processor_Type" ColumnName="Processor_Type" />
+          <ScalarProperty Name="MachineNO" ColumnName="MachineNO" />
+          <ScalarProperty Name="LabNo" ColumnName="LabNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="labs">
+      <EntityTypeMapping TypeName="TMSDBModel.lab">
+        <MappingFragment StoreEntitySet="lab">
+          <ScalarProperty Name="floor" ColumnName="floor" />
+          <ScalarProperty Name="LabNo" ColumnName="LabNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="repairs">
+      <EntityTypeMapping TypeName="TMSDBModel.repair">
+        <MappingFragment StoreEntitySet="repair">
+          <ScalarProperty Name="repair_date" ColumnName="repair_date" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="repair_id" ColumnName="repair_id" />
+          <ScalarProperty Name="MachineNO" ColumnName="MachineNO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

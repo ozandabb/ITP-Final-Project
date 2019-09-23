@@ -1,4 +1,16 @@
-﻿@model StudentApp.Models.computer
+﻿@model StudentApp.Models.lab
+
+
+@{
+    /**/
+
+    Layout = null;
+}
+<style>
+    .wrapper {
+        text-align: center;
+    }
+</style>
 
 
 <h2>Save</h2>
@@ -7,49 +19,26 @@
 {
 
 
-    if (Model != null && Model.MachineNO > 0)
+    if (Model != null && Model.LabNo > 0)
     {
-        @Html.HiddenFor(a => a.MachineNO)
+        @Html.HiddenFor(a => a.LabNo)
 
     }
     <div class="form-group">
         <label>Lab No</label>
-        @Html.TextBoxFor(a => a.LabNo, new { @class = "form-control " })
+        @Html.TextBoxFor(b => b.LabNo, new { @class = "form-control " })
         @Html.ValidationMessageFor(a => a.LabNo)
     </div>
     <div class="form-group">
-        <label>Machine No</label>
-        @Html.TextBoxFor(a => a.MachineNO, new { @class = "form-control " })
-        @Html.ValidationMessageFor(a => a.MachineNO)
-    </div>
-    <div class="form-group">
-        <label>Processor Type</label>
-        @Html.TextBoxFor(a => a.Processor_Type, new { @class = "form-control " })
-        @Html.ValidationMessageFor(a => a.Processor_Type)
-    </div>
-    <div class="form-group">
-        <label>Motherboard Model</label>
-        @Html.TextBoxFor(a => a.Motherboard_ID, new { @class = "form-control" })
-        @Html.ValidationMessageFor(a => a.Motherboard_ID)
-    </div>
-    <div class="form-group">
-        <label>Power Supply ID</label>
-        @Html.TextBoxFor(a => a.PowerSupply_ID, new { @class = "form-control " })
-        @Html.ValidationMessageFor(a => a.PowerSupply_ID)
-    </div>
-    <div class="form-group">
-        <label>RAM Capacity</label>
-        @Html.TextBoxFor(a => a.RAM_Capacity, new { @class = "form-control " })
-        @Html.ValidationMessageFor(a => a.RAM_Capacity)
-    </div>
-    <div class="form-group">
-        <label>HDD Capacity</label>
-        @Html.TextBoxFor(a => a.HDD_Capacity, new { @class = "form-control " })
-        @Html.ValidationMessageFor(a => a.HDD_Capacity)
+        <label>Floor </label>
+        @Html.TextBoxFor(b => b.floor, new { @class = "form-control " })
+        @Html.ValidationMessageFor(b => b.floor)
     </div>
 
-    <div>
-        <input type="submit" class="btn btn-default btn-sm" value="Save" />
-        <br />
+
+    <div class="wrapper">
+        <input type="submit" class="btn btn-primary btn-lg" value="Save" />
+        <br />   <br />
     </div>
 }
+

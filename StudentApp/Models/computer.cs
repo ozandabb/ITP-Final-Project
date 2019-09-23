@@ -11,25 +11,25 @@ namespace StudentApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class computer
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public computer()
-        {
-            this.repairs = new HashSet<repair>();
-        }
-    
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Lab Number")]
         public int LabNo { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Machine Number")]
         public int MachineNO { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Processor Type")]
         public string Processor_Type { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Motherboard ID")]
         public string Motherboard_ID { get; set; }
+        [Required]
         public string PowerSupply_ID { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide RAM Capacity")]
+        [RegularExpression("[2,4,8,6,12,16,32,64]" + "GB", ErrorMessage = "RAM Capacity Should Be 'GB'  or Invalid Capacity Type")]
         public string RAM_Capacity { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide HDD Capacity")]
+        [RegularExpression("[1,2,3,4,5,6,7,8,9,10]" + "TB", ErrorMessage = "HDD Capacity Should Be 'TB' or Invalid Capacity Type(1TB...10TB)")]
         public string HDD_Capacity { get; set; }
-    
-        public virtual lab lab { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<repair> repairs { get; set; }
     }
 }
