@@ -63,9 +63,12 @@ namespace TMSApp.Controllers
         }
 
         // POST: Home/Create
+
+
         [HttpPost]
         public ActionResult Create([Bind(Exclude = "Id")]  classroom classroomToCreate)
         {
+
 
             if (!ModelState.IsValid)
             {
@@ -155,7 +158,7 @@ namespace TMSApp.Controllers
         {
             if (id == null)
             {
-                id = 18;
+                id = 1;
             }
             classroom classroom = _db.classrooms.Find(id);
             if (classroom == null)

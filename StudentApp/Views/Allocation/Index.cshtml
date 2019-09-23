@@ -5,6 +5,40 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+<style>
+
+    #table_css {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #table_css td, #table_css th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #table_css tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #table_css tr:hover {
+            background-color: #ddd;
+        }
+
+        #table_css th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #00d87c;
+            color: white;
+        }
+</style>
+
+
+
+
 <h2>Allocations</h2>
 
 
@@ -12,42 +46,106 @@
     <li><a href="../Classroom/Index">Classrooms</a></li>
     <li><a href="../Allocation/Create">New Allocation</a></li>
 
+    <li><a href="../../Classroom/view2">Pubudu Institute</a></li>
+    <li class'="active"><a href="../../Classroom/view3">Sipsewana Institute</a></li>
+
+
+
+    <!--
     <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
             Locations
             <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-            <li><a href="../../Classroom/view2/18">Pubudu Institute</a></li>
-            <li><a href="../../Classroom/view3">Sipsewana Institute</a></li>
+            <li><a href="../Classroom/view2">Pubudu Institute</a></li>
+            <li><a href="../Classroom/view3">Sipsewana Institute</a></li>
 
         </ul>
     </li>
+    -->
+
     <li class="active"><a href="../Allocation/Index">Allocations</a></li>
 </ul>
 
 <div class="row">
-    <div class="col-sm-3 col-md-6">
-
-
-
+    <div class="col-sm-3 col-md-3">
 
         @using (Html.BeginForm("Index", "Allocation/Index", FormMethod.Get))
         {
             <h3>Search</h3>
 
-            <p>
-                Day: @Html.TextBox("Day", null, new { @class = "form-control" })
-            </p>
-            <p>
-                Start Time: @Html.TextBox("S_Time", null, new { @class = "form-control" })
-            </p>
-            <p>
-                End Time: @Html.TextBox("E_Time", null, new { @class = "form-control" })
-            </p>
-            <p>
-                Class id: @Html.TextBox("C_id", null, new { @class = "form-control" })
-            </p>
+            <div class="row">
+                <div class="col-sm-3 col-md-12">
+                    <p>
+                        Day:
+                        @Html.DropDownList("Day", null, new { @class = "form-control" })
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-3 col-md-4">
+                    <br />
+                    Start Time:
+
+                </div>
+
+                <div class="col-sm-3 col-md-4">
+                    hh: @Html.DropDownList("S_Time_hh", null, new { @class = "form-control" })
+                </div>
+
+                <div class="col-sm-3 col-md-4">
+                    mm: @Html.DropDownList("S_Time_mm", null, new { @class = "form-control" })
+                </div>
+
+
+            </div>
+
+
+
+            <div class="row">
+
+                <div class="col-sm-3 col-md-4">
+                    <br />
+                    End Time:
+
+                </div>
+
+                <div class="col-sm-3 col-md-4">
+                    hh: @Html.DropDownList("E_Time_hh", null, new { @class = "form-control" })
+                </div>
+
+                <div class="col-sm-3 col-md-4">
+                    mm: @Html.DropDownList("E_Time_mm", null, new { @class = "form-control" })
+                </div>
+
+
+            </div>
+
+
+            @*<p>
+                    Start Time: @Html.TextBox("S_Time", null, new { @class = "form-control" })
+                </p>
+                <p>
+                    End Time: @Html.TextBox("E_Time", null, new { @class = "form-control" })
+                </p>*@
+
+            <div class="row">
+                <div class="col-sm-3 col-md-12">
+
+                    <p>Class name:</p>
+                    <p class="help-block">Ex:(P01,P34,S22)</p>
+
+                    @Html.TextBox("C_id", null, new { @class = "form-control" })
+                    <p class="help-block">Hint : Fill all data before attempt to search classrooms. </p>
+                    <p class="help-block">*Leave class name column empty to filter all classes. </p>
+                    <p class="help-block">*time format: hh:mm </p>
+
+                </div>
+            </div>
+
 
             <p>
                 <button type="submit" class="btn btn-primary mb-2" value="Filter">Filter</button>
@@ -55,13 +153,13 @@
         }
 
 
-
-
     </div>
 
-    <div class="col-sm-3 col-md-6">
+    <br />
 
-        <table class="table">
+    <div class="col-sm-3 col-md-9">
+
+        <table id="table_css">
             <tr>
                 <th>
                     Allocation Id
@@ -82,7 +180,7 @@
                     Teacher id
                 </th>
                 <th>
-                    Class id
+                    Class name
                 </th>
                 <th>
                     Subject id

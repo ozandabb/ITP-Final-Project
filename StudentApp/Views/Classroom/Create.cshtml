@@ -1,26 +1,56 @@
 ﻿@model StudentApp.Models.classroom
 
+
+
+
+
 @{
     ViewBag.Title = "Create";
+
+    List<SelectListItem> loc_li = new List<SelectListItem>();
+    loc_li.Add(new SelectListItem() { Text = "Pubudu" });
+    loc_li.Add(new SelectListItem() { Text = "Sipsewana" });
+
+
+
+
+    List<SelectListItem> ac_li = new List<SelectListItem>();
+    ac_li.Add(new SelectListItem() { Text = "Non" });
+    ac_li.Add(new SelectListItem() { Text = "Ac" });
+
+
+
 }
 
-<h2>Create</h2>
+<h2>Add Classroom</h2>
 
 <ul class="nav nav-tabs">
     <li><a href="../Classroom/Index">Classrooms</a></li>
     <li class="active"><a href="../Classroom/Create">Create New</a></li>
 
-    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            Locations
-            <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-            <li><a href="../Classroom/view2">Pubudu Institute</a></li>
-            <li><a href="../Classroom/view3">Sipsewana Institute</a></li>
 
-        </ul>
-    </li>
+
+
+    <li><a href="../Classroom/view2">Pubudu Institute</a></li>
+    <li><a href="../Classroom/view3">Sipsewana Institute</a></li>
+
+
+
+
+    @*<li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                Locations
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="../Classroom/view2">Pubudu Institute</a></li>
+                <li><a href="../Classroom/view3">Sipsewana Institute</a></li>
+
+            </ul>
+        </li>*@
+
+
+
     <li><a href="../Allocation/Index">Allocations</a></li>
 </ul>
 
@@ -53,8 +83,13 @@
         <div class="form-group">
             <Label class="control-label col-md-2">Location</Label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.location, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.location, "", new { @class = "text-danger" })
+
+
+
+                @Html.DropDownListFor(model => model.location, loc_li, new { @class = "form-control" })
+
+
+
             </div>
         </div>
 
@@ -70,31 +105,12 @@
         <div class="form-group">
             <Label class="control-label col-md-2">Ac/Non</Label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ac_nonac, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ac_nonac, "", new { @class = "text-danger" })
+
+                @Html.DropDownListFor(model => model.ac_nonac, ac_li, new { @class = "form-control" })
+
             </div>
         </div>
 
-
-        <!--
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#myModal" value="Create">Save Details</button>
-
-                    <div class="modal fade" id="myModal" role="dialog">
-                        <div class="modal-dialog">
-
-
-                            <div class="alert alert-success alert-dismissible">
-                                <a class="close" data-dismiss="modal" aria-label="close">&times;</a>
-                                <strong>Success!</strong>Classroom Details are added to the Database.
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        -->
 
 
         <div class="form-group">

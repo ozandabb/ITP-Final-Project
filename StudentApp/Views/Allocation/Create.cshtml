@@ -2,14 +2,37 @@
 
 @{
     ViewBag.Title = "Create";
+
+
+    List<SelectListItem> Day_li = new List<SelectListItem>();
+    Day_li.Add(new SelectListItem() { Text = "Monday" });
+    Day_li.Add(new SelectListItem() { Text = "Tuesday" });
+    Day_li.Add(new SelectListItem() { Text = "Wednesday" });
+    Day_li.Add(new SelectListItem() { Text = "Thursday" });
+    Day_li.Add(new SelectListItem() { Text = "Friday" });
+    Day_li.Add(new SelectListItem() { Text = "Saturday" });
+    Day_li.Add(new SelectListItem() { Text = "Sunday" });
+
+
+
+
 }
 
-<h2>Create</h2>
+
+
+
+<h2>New Allocation</h2>
 
 <ul class="nav nav-tabs">
     <li><a href="../Classroom/Index">Classrooms</a></li>
     <li class="active"><a href="../Allocation/Create">New Allocation</a></li>
 
+    <li><a href="../../Classroom/view2">Pubudu Institute</a></li>
+    <li class'="active"><a href="../../Classroom/view3">Sipsewana Institute</a></li>
+
+
+
+    <!--
     <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
             Locations
@@ -21,6 +44,7 @@
 
         </ul>
     </li>
+    -->
     <li><a href="../Allocation/Index">Allocations</a></li>
 </ul>
 
@@ -36,21 +60,28 @@
         <div class="form-group">
             <Label class="control-label col-md-2">Day</Label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.day, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.day, "", new { @class = "text-danger" })
+
+
+                @Html.DropDownListFor(model => model.day, Day_li, new { @class = "form-control" })
+
+
+
             </div>
         </div>
 
         <div class="form-group">
-            <Label class="control-label col-md-2">Start Time</Label>
+            <Label class="control-label col-md-2">Start Time:<br /> Format:(hh:mm)</Label>
             <div class="col-md-10">
+
+
                 @Html.EditorFor(model => model.start_time, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.start_time, "", new { @class = "text-danger" })
+
             </div>
         </div>
 
         <div class="form-group">
-            <Label class="control-label col-md-2">End Time</Label>
+            <Label class="control-label col-md-2">End Time:<br /> Format:(hh:mm)</Label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.end_time, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.end_time, "", new { @class = "text-danger" })
@@ -74,7 +105,7 @@
         </div>
 
         <div class="form-group">
-            <Label class="control-label col-md-2">Class id</Label>
+            <Label class="control-label col-md-2">Class Name:<br /> Ex:(P22,P41,S22)</Label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.class_id, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.class_id, "", new { @class = "text-danger" })
