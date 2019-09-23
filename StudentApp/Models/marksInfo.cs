@@ -11,14 +11,24 @@ namespace StudentApp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class marksInfo
     {
         public int m_id { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public Nullable<int> sub_id { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public Nullable<int> e_id { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public Nullable<int> stu_id { get; set; }
+
+        [Required(ErrorMessage = "Required")]
+        [Range(0, 101, ErrorMessage = "Marks should be between 0 and 100")]
         public Nullable<int> marks { get; set; }
     
         public virtual exam exam { get; set; }

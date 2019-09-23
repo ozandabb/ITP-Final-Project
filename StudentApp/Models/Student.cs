@@ -11,7 +11,8 @@ namespace StudentApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Student
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,14 +25,36 @@ namespace StudentApp.Models
         }
     
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public string Full_Name { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public string School { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public string Address { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public string Division { get; set; }
+
+        [Required(ErrorMessage = "Required")]
+        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
+                           @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
+                           @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
+                           ErrorMessage = "Email is not valid")]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public string Contact_No { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public string Parent_Name { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public string Parent_Mobile { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public string Parent_Work { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -11,11 +11,16 @@ namespace StudentApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class notify
     {
         public int n_id { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public string title { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public string descript { get; set; }
     }
 }

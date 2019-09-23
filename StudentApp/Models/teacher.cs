@@ -11,7 +11,8 @@ namespace StudentApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class teacher
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,12 +22,29 @@ namespace StudentApp.Models
         }
     
         public int t_id { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public string full_name { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public string school { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public string division { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public string t_address { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public string contact_number { get; set; }
+
+        [Required(ErrorMessage = "Required")]
+        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
+                           @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
+                           @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
+                           ErrorMessage = "Email is not valid")]
         public string email { get; set; }
+
         public Nullable<int> fees { get; set; }
         public Nullable<int> noStudents { get; set; }
     

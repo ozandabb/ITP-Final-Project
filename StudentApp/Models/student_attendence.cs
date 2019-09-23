@@ -11,12 +11,17 @@ namespace StudentApp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class student_attendence
     {
         public int att_id { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public Nullable<System.DateTime> date { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public Nullable<int> stu_id { get; set; }
 
         public virtual Student Student { get; set; }
