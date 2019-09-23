@@ -70,18 +70,8 @@
 
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link">
-                                <span>  @Html.ActionLink("EPF/ETF", "EPF_ETF") </span>
 
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link">
-                                <span>  @Html.ActionLink("Income", "Income") </span>
-
-                            </a>
-                        </li>
+                        
                     </ul>
                 </div>
             </nav>
@@ -91,50 +81,61 @@
     <!-- End Of The Side Nav -->
     <!-- Start of Web Content-->
 
-    <p style="margin-left:12%;">
-        @Html.ActionLink("Create New", "NewBill")
-    </p>
-    <table class="table" style="margin-left:12%;">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.amount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.description)
-            </th>
-            <th></th>
-        </tr>
 
-        @foreach (var item in Model)
-        {
+
+    <div class="card">
+        <div class="card-header"> New Tax </div>
+        <div class="col-md-auto">
+            @Html.ActionLink("Create New", "NewBill")
+
+            <br /> <br />
+
+
+        </div>
+        </div>
+
+        
+        <table class="table" style="margin-left:12%;">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.type)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.amount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.description)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "EditBill", new { id = item.billId }) |
-
-
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.amount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.description)
+                </th>
+                <th></th>
             </tr>
-        }
 
-    </table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.description)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditBill", new { id = item.billId }) |
+
+
+                    </td>
+                </tr>
+            }
+
+        </table>
 
 </body>
 </html>

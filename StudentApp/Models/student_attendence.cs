@@ -18,7 +18,7 @@ namespace StudentApp.Models
         public int att_id { get; set; }
         public Nullable<System.DateTime> date { get; set; }
         public Nullable<int> stu_id { get; set; }
-    
+
         public virtual Student Student { get; set; }
 
         [NotMapped]

@@ -167,15 +167,15 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Full_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="School" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Division" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Contact_No" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="Parent_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Parent_Mobile" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="Parent_Work" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Full_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="School" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Division" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Contact_No" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Parent_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Parent_Mobile" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Parent_Work" Type="char" MaxLength="10" Nullable="false" />
   </EntityType>
   <EntityType Name="subject_exam">
     <Key>
@@ -217,6 +217,15 @@
     <Property Name="email" Type="varchar" MaxLength="50" />
     <Property Name="fees" Type="int" />
     <Property Name="noStudents" Type="int" />
+  </EntityType>
+  <EntityType Name="tuteinfo">
+    <Key>
+      <PropertyRef Name="Tute_id" />
+    </Key>
+    <Property Name="Tute_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tutename" Type="varchar" MaxLength="100" />
+    <Property Name="Student_id" Type="varchar" MaxLength="50" />
+    <Property Name="Marks" Type="int" />
   </EntityType>
   <EntityType Name="tutes">
     <Key>
@@ -387,6 +396,7 @@
     <EntitySet Name="subjects" EntityType="Self.subjects" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Taxes" EntityType="Self.Taxes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="teachers" EntityType="Self.teachers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tuteinfo" EntityType="Self.tuteinfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tutes" EntityType="Self.tutes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tutes1" EntityType="Self.Tutes1" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />

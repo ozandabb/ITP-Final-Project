@@ -57,15 +57,15 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Full_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="School" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Division" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Contact_No" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Parent_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Parent_Mobile" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Parent_Work" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Full_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="School" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Division" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contact_No" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Parent_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Parent_Mobile" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Parent_Work" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
     <NavigationProperty Name="student_tute" Relationship="Self.FK__student_t__st_id__4F7CD00D" FromRole="Students" ToRole="student_tute" />
     <NavigationProperty Name="subjects" Relationship="Self.student_subject" FromRole="Students" ToRole="subject" />
     <NavigationProperty Name="marksInfoes" Relationship="TMSDBModel.FK__marksInfo__stu_i__18B6AB08" FromRole="Student" ToRole="marksInfo" />
@@ -280,6 +280,7 @@
     <EntitySet Name="computers" EntityType="TMSDBModel.computer" />
     <EntitySet Name="labs" EntityType="TMSDBModel.lab" />
     <EntitySet Name="repairs" EntityType="TMSDBModel.repair" />
+    <EntitySet Name="tuteinfoes" EntityType="TMSDBModel.tuteinfo" />
   </EntityContainer>
   <EntityType Name="Allocation">
     <Key>
@@ -328,10 +329,10 @@
     <Key>
       <PropertyRef Name="Tute_id" />
     </Key>
-    <Property Name="Tute_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Tute_title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Sub_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Teacher_name_" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tute_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Tute_title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Sub_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Teacher_name_" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
   </EntityType>
   <EntityType Name="classroom1">
     <Key>
@@ -473,5 +474,14 @@
     <Property Name="cost" Type="Double" />
     <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="repair_date" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="tuteinfo">
+    <Key>
+      <PropertyRef Name="Tute_id" />
+    </Key>
+    <Property Name="Tute_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tutename" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Student_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Marks" Type="Int32" />
   </EntityType>
 </Schema>

@@ -74,22 +74,15 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link">
-                                <span>  @Html.ActionLink("OT Overview", "OT_Overview") </span>
+                                <span>  @Html.ActionLink("Bills", "Bill") </span>
 
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link">
-                                <span>  @Html.ActionLink("EPF/ETF", "EPF_ETF") </span>
 
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link">
-                                <span>  @Html.ActionLink("Reports", "Reports") </span>
 
-                            </a>
-                        </li>
+
+
+
                     </ul>
                 </div>
             </nav>
@@ -102,13 +95,13 @@
 
     <div class="container-fluid" style="margin-left:12%;">
 
-        <h2> <span> INCOME </span></h2>
+        <h2  style="color:#0984e3"> <span> INCOME </span></h2>
         <div class="form-inline">
-            <label> Time Period </label> 
+            <label  style="color:#0984e3"> Time Period </label> 
 
-            <label> From </label> <input class="form-control" type="date" name="incomeFrom" /> 
-            <label> To </label> <input class="form-control" type="date" name="incomeUpTo" />
-            <label> Centre </label> <select class="form-control"> 
+            <label  style="color:#0984e3"> From </label> <input class="form-control" type="date" name="incomeFrom" /> 
+            <label  style="color:#0984e3"> To </label> <input class="form-control" type="date" name="incomeUpTo" />
+            <label  style="color:#0984e3"> Centre </label> <select class="form-control"> 
                                         <option selected>  </option>
                                         <option> Malabe </option>
             </select>
@@ -206,7 +199,7 @@
                 pointHoverBorderWidth: 15,
                 pointRadius: 4,
 
-                data: [100, 70, 90, 70, 85, 60, 75, 60, 90, 80, 110, 100],
+                data: [10000, 20000, 14000, 8900, 12000, 16000, 12450, 34212, 12390, 0, 0, 0],
             }]
         },
         options: gradientChartOptionsConfigurationWithTooltipPurple

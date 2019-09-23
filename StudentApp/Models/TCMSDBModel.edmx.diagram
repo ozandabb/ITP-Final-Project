@@ -27,8 +27,8 @@
         <EntityTypeShape EntityType="TMSDBModel.Bill" Width="1.5" PointX="8.75" PointY="11.75" />
         <EntityTypeShape EntityType="TMSDBModel.Invoice" Width="1.5" PointX="11.75" PointY="14.125" />
         <EntityTypeShape EntityType="TMSDBModel.Tax" Width="1.5" PointX="9.25" PointY="14.25" />
-        <EntityTypeShape EntityType="TMSDBModel.Tutes" Width="1.5" PointX="14" PointY="14.125" />
-        <EntityTypeShape EntityType="TMSDBModel.classroom1" Width="1.5" PointX="13.375" PointY="8.75" />
+        <EntityTypeShape EntityType="TMSDBModel.Tutes" PointX="14.375" PointY="0.75" Width="1.5" />
+        <EntityTypeShape EntityType="TMSDBModel.classroom1" Width="1.5" PointX="13" PointY="8.5" />
         <EntityTypeShape EntityType="TMSDBModel.marksInfo" Width="1.5" PointX="6" PointY="17.25" />
         <AssociationConnector Association="TMSDBModel.FK__marksInfo__e_id__17C286CF" />
         <AssociationConnector Association="TMSDBModel.FK__marksInfo__stu_i__18B6AB08" />
@@ -41,6 +41,7 @@
         <EntityTypeShape EntityType="TMSDBModel.computer" Width="1.5" PointX="8.375" PointY="0.75" />
         <EntityTypeShape EntityType="TMSDBModel.lab" Width="1.5" PointX="10.375" PointY="0.75" />
         <EntityTypeShape EntityType="TMSDBModel.repair" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TMSDBModel.tuteinfo" Width="1.5" PointX="14.5" PointY="11.375" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

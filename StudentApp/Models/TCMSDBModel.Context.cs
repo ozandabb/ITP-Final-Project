@@ -49,5 +49,6 @@ namespace StudentApp.Models
         public virtual DbSet<computer> computers { get; set; }
         public virtual DbSet<lab> labs { get; set; }
         public virtual DbSet<repair> repairs { get; set; }
+        public virtual DbSet<tuteinfo> tuteinfoes { get; set; }
     }
 }

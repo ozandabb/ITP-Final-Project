@@ -66,16 +66,10 @@
 
                             </a>
                         </li>
-                       
-                        <li class="nav-item">
-                            <a class="nav-link">
-                                <span>  @Html.ActionLink("EPF/ETF", "EPF_ETF") </span>
 
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link">
-                                <span>  @Html.ActionLink("Reports", "Reports") </span>
+                                <span>  @Html.ActionLink("Bills", "Bill") </span>
 
                             </a>
                         </li>
@@ -90,8 +84,9 @@
 
 
     <div class="container-fluid" style="margin-left:200px;">
+     
 
-        <h2> Taxes </h2>
+        <h2 style="color:#0984e3"> Taxes </h2>
 
         <div class="card">
             <div class="card-header"> New Tax </div>
@@ -119,17 +114,17 @@
                         </tr>
                     </thead>
                     @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td> @Html.DisplayFor(modelItem => item.taxId)</td>
-                            <td> @Html.DisplayFor(modelItem => item.type)</td>
-                            <td> @Html.DisplayFor(modelItem => item.date)</td>
-                            <td> @Html.DisplayFor(modelItem => item.amount)</td>
-                            <td> @Html.DisplayFor(modelItem => item.descrption)</td>
-                            <td> @Html.ActionLink("Edit", "EditTax", new { id = item.taxId }) </td>
+                {
+                    <tr>
+                        <td> @Html.DisplayFor(modelItem => item.taxId)</td>
+                        <td> @Html.DisplayFor(modelItem => item.type)</td>
+                        <td> @Html.DisplayFor(modelItem => item.date)</td>
+                        <td> @Html.DisplayFor(modelItem => item.amount)</td>
+                        <td> @Html.DisplayFor(modelItem => item.descrption)</td>
+                        <td> @Html.ActionLink("Edit", "EditTax", new { id = item.taxId }) </td>
 
-                        </tr>
-                    }
+                    </tr>
+            }
 
 
 

@@ -269,5 +269,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tuteinfoes">
+      <EntityTypeMapping TypeName="TMSDBModel.tuteinfo">
+        <MappingFragment StoreEntitySet="tuteinfo">
+          <ScalarProperty Name="Marks" ColumnName="Marks" />
+          <ScalarProperty Name="Student_id" ColumnName="Student_id" />
+          <ScalarProperty Name="Tutename" ColumnName="Tutename" />
+          <ScalarProperty Name="Tute_id" ColumnName="Tute_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -244,6 +244,9 @@
     <Compile Include="Models\tute.cs">
       <DependentUpon>TCMSDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tuteinfo.cs">
+      <DependentUpon>TCMSDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Tutes.cs">
       <DependentUpon>TCMSDBModel.tt</DependentUpon>
     </Compile>
