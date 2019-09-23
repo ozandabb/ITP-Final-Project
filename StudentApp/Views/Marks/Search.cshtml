@@ -22,7 +22,7 @@
     }
 
     /* Clear floats after the columns */
-    
+
 
     h3 {
         font-weight: bold;
@@ -73,27 +73,27 @@
 <h2>Search</h2>
 @using (Html.BeginForm())
 {
-<div class="row" style="margin-left: 0px !important">
+    <div class="row" style="margin-left: 0px !important">
 
-    <div class="column" style="text-align: center" id="ani">
-        <text>Student ID:</text> @Html.Editor("stuid", new { htmlAttributes = new { @class = "form-control" } })
-    </div>
+        <div class="column" style="text-align: center" id="ani">
+            <text>Student ID:</text> @Html.Editor("stuid", new { htmlAttributes = new { @class = "form-control" } })
+        </div>
 
-    <div class="column" style="text-align: center" id="ani">
-        <text>Exam ID:</text> @Html.Editor("examid", new { htmlAttributes = new { @class = "form-control" } })
+        <div class="column" style="text-align: center" id="ani">
+            <text>Exam ID:</text> @Html.Editor("examid", new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <br />
+        <input type="submit" value="search" class="btn btn-default" />
     </div>
-    <br />
-    <input type="submit" value="search" class="btn btn-default" />
-</div>
 }
 <p>
 
-    
+
     @*<text>Student ID : </text><input type="text" />*@
-    
-    
-   
-    
+
+
+
+
 </p>
 <br /><br />
 
@@ -128,11 +128,11 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.exam.exam_title)
-                
+
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Student.Full_Name)
-                
+
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.subject.title)
@@ -170,3 +170,7 @@
     }
 
 </table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

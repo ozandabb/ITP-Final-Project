@@ -69,7 +69,9 @@
 <center>
     <div class="btn-group">
         <button class="button"> <img src="~/img/sub1.png" width="20px" /> @Html.ActionLink("Add Subject   ", "Create")</button>
+        <button class="button"><img src="~/img/homie.png" width="20px" />@Html.ActionLink(" Home ", "mainSub")</button>
         <button class="button"><img src="~/img/s6.png" width="20px" />@Html.ActionLink(" Logout ", "filterBy")</button>
+
     </div>
 </center>
 
@@ -82,7 +84,7 @@
     {
     <p>
         Name: @Html.TextBox("Search") &nbsp; &nbsp;
-        <input style="border-radius: 1px" type="submit" value="search" />
+        <input style="border-radius: 1px" type="submit" value="search" class="btn btn-default" />
     </p>
 }
 

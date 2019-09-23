@@ -1573,3 +1573,43 @@ F:\Osandage version eka\Osandage version 10\ITP-Final-Project\StudentApp\obj\Deb
 F:\Osandage version eka\Osandage version 10\ITP-Final-Project\StudentApp\obj\Debug\StudentApp.csproj.CopyComplete
 F:\Osandage version eka\Osandage version 10\ITP-Final-Project\StudentApp\obj\Debug\StudentApp.dll
 F:\Osandage version eka\Osandage version 10\ITP-Final-Project\StudentApp\obj\Debug\StudentApp.pdb
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\StudentApp.dll.config
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\StudentApp.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\StudentApp.pdb
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\Antlr3.Runtime.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\EntityFramework.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\EntityFramework.SqlServer.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\Newtonsoft.Json.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\PagedList.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\PagedList.Mvc.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\System.Web.Helpers.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\System.Web.Mvc.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\System.Web.Optimization.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\System.Web.Razor.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\System.Web.WebPages.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\System.Web.WebPages.Razor.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\WebGrease.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\EntityFramework.xml
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\EntityFramework.SqlServer.xml
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\Microsoft.ReportViewer.WebForms.xml
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\PagedList.xml
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\PagedList.Mvc.xml
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\System.Web.Helpers.xml
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\System.Web.Mvc.xml
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\System.Web.Optimization.xml
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\System.Web.Razor.xml
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\System.Web.WebPages.xml
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\System.Web.WebPages.Razor.xml
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\Newtonsoft.Json.xml
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\Antlr3.Runtime.pdb
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\obj\Debug\StudentApp.csprojAssemblyReference.cache
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\obj\Debug\StudentApp.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\obj\Debug\StudentApp.csproj.CopyComplete
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\obj\Debug\StudentApp.dll
+C:\Users\Asus\Source\Repos\ITP-Final-Projectfinal2\StudentApp\obj\Debug\StudentApp.pdb

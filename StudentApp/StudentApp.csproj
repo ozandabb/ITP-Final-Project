@@ -331,6 +331,7 @@
     <Content Include="img\exams.png" />
     <Content Include="img\finance.jpg" />
     <Content Include="img\grade.png" />
+    <Content Include="img\homie.png" />
     <Content Include="img\labb.jpg" />
     <Content Include="img\loginImage.png" />
     <Content Include="img\main.jpg" />

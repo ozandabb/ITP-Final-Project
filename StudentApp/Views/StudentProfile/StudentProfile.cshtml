@@ -6,14 +6,14 @@
 @Html.Raw(TempData["LoginSuccessmessage"])
 
 
-<div style="text-align:right">
+<div style="text-align:center">
     <h3>Welcome @Session["Username"]</h3>
 
     <h4>@Html.ActionLink("Logout", "Logout", "StudentProfile")</h4>
 </div>
-<hr />
+<hr width="500px" />
 
-
+<br />
 <div>
     <h2>Search your Marks here</h2>
     @Html.ActionLink("Search here", "../Marks/Search")

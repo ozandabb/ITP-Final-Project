@@ -68,9 +68,11 @@
 
 <center>
     <div class="btn-group">
-        <button class="button"> <img src="~/img/exam1.png width="20px" /> @Html.ActionLink("Add Exam   ", "Create")</button>
+        <button class="button"> <img src="~/img/exam1.png" width="20px" /> @Html.ActionLink("Add Exam   ", "Create")</button>
         <button class="button"> <img src="~/img/grade.png" width="20px" /> @Html.ActionLink("Marks   ", "../Marks/Index")</button>
+        <button class="button"><img src="~/img/homie.png" width="20px" />@Html.ActionLink(" Home ", "../Subjects/mainSub")</button>
         <button class="button"><img src="~/img/s6.png" width="20px" />@Html.ActionLink(" Logout ", "filterBy")</button>
+
     </div>
 </center>
 
@@ -97,7 +99,6 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.exam_id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.exam_id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.exam_id })
             </td>
         </tr>
