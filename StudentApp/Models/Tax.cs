@@ -11,13 +11,27 @@ namespace StudentApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Tax
     {
+
+        [Required]
         public int taxId { get; set; }
+
+        [Required]
+        [StringLength(50, MinimumLength =1)]
         public string type { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
         public System.DateTime date { get; set; }
+
+        [Required]
+        [DataType(DataType.Currency)]
         public double amount { get; set; }
+
+        [StringLength(30, MinimumLength =0)]
         public string descrption { get; set; }
     }
 }

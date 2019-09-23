@@ -11,13 +11,27 @@ namespace StudentApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Bill
     {
+
+        [Required]
         public int billId { get; set; }
+
+        [Required]
+        [StringLength(55, MinimumLength =3)]
         public string type { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
         public System.DateTime date { get; set; }
+
+        [Required]
+        [DataType(DataType.Currency)]
         public double amount { get; set; }
+
+        [StringLength(40, MinimumLength =0)]
         public string description { get; set; }
     }
 }
