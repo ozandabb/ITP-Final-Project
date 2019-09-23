@@ -144,6 +144,7 @@
     <Compile Include="Controllers\ComputerRepairController.cs" />
     <Compile Include="Controllers\EmployeeAttendanceController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\FinanceManagerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -528,7 +529,9 @@
     <Content Include="Views\ComputerRepair\Save.cshtml" />
     <Content Include="Views\ComputerRepair\Delete.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Event\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
