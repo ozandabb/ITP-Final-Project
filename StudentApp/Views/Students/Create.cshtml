@@ -44,7 +44,7 @@
             @Html.LabelFor(model => model.Division, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.Division, new { htmlAttributes = new { @class = "form-control" } })*@
-                @Html.DropDownList("division", divi, "Select Division")
+                @Html.DropDownList("division", divi, "Select Division", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Division, "", new { @class = "text-danger" })
             </div>
         </div>

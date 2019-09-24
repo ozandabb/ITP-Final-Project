@@ -46,14 +46,16 @@ namespace StudentApp.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Required")]
+        
         public string Contact_No { get; set; }
 
         [Required(ErrorMessage = "Required")]
         public string Parent_Name { get; set; }
 
         [Required(ErrorMessage = "Required")]
+        [DataType(DataType.PhoneNumber)]
         public string Parent_Mobile { get; set; }
-
+        [DataType(DataType.PhoneNumber)]
         [Required(ErrorMessage = "Required")]
         public string Parent_Work { get; set; }
     
