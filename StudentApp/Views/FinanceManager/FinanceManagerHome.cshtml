@@ -93,6 +93,9 @@
             <h2 class="homeTop" style="color:#0984e3"> <span> Overview </span></h2>
 
 
+            <button class="form-inline" onclick="setVal()" > Demo  </button>
+
+
           
 
 
@@ -180,7 +183,15 @@
 
         gradientStroke.addColorStop(1, 'rgba(72,72,176,0.1)');
         gradientStroke.addColorStop(0.4, 'rgba(72,72,176,0.0)');
-        gradientStroke.addColorStop(0, 'rgba(119,52,169,0)');
+    gradientStroke.addColorStop(0, 'rgba(119,52,169,0)');
+
+
+    array = [0];
+
+    function setVal() {
+
+        array = [31244, 28391, 40000, 14836, 50000, 12000, 11000, 30000, 32000, 0, 0, 0];
+
 
 
         var myChartData = new Chart(ctx, {
@@ -203,7 +214,7 @@
                     pointHoverBorderWidth: 15,
                     pointRadius: 4,
 
-                    data: [31244, 28391, 40000, 14836, 50000, 12000, 11000, 30000, 32000, 0, 0, 0],
+                    data: array,
                 }]
             },
             options: gradientChartOptionsConfigurationWithTooltipPurple
@@ -211,8 +222,8 @@
 
         );
 
-    
-    
+
+    }
 
     
     
