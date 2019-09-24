@@ -15,14 +15,17 @@ namespace StudentApp.Models
 
     public partial class repair
     {
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Machine Number")]
+        [Required(ErrorMessage = "The field Machine Number, Reqiured")]
         public int MachineNO { get; set; }
+
         public int repair_id { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Enter Repair Cost")]
+        //[MaxLength(7, ErrorMessage = "Invalid Length.")]
+        [Required(ErrorMessage = "The field Cost, Reqiured")]
         public Nullable<double> cost { get; set; }
-        [Required]
+        [Required(ErrorMessage = "The field Description, Reqiured")]
+        [MaxLength(100, ErrorMessage = "{0} can have a max of {1} characters")]
         public string description { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "The Repair Date field is required")]
+        [Required(ErrorMessage = "The field Repair Date, Reqiured")]
         public Nullable<System.DateTime> repair_date { get; set; }
     }
 }

@@ -15,6 +15,7 @@ namespace StudentApp.Models
 
     public partial class computer
     {
+        [Range(1, int.MaxValue, ErrorMessage = "Please Enter a value Bigger than {1}")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Lab Number")]
         public int LabNo { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Machine Number")]

@@ -15,9 +15,13 @@ namespace StudentApp.Models
 
     public partial class lab
     {
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Lab Number")]
+        [Required(ErrorMessage = "The field Lab Number, Reqiured")]
+        [Range(1, 10, ErrorMessage = "The field Lab Number must be between 1 and 10.")]
+        [RegularExpression("([0-9]+)", ErrorMessage = "Please Enter Valid Positive Number.Only Numbers Are Acceptable.")]
         public int LabNo { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Floor Number")]
+        [Required(ErrorMessage = "The field Floor, Reqiured")]
+        [Range(1, 10, ErrorMessage = "The field Floor Number must be between 1 and 10.")]
+        [RegularExpression("([0-9]+)", ErrorMessage = "Please Enter Valid Positive Number.Only Numbers Are Acceptable.")]
         public int floor { get; set; }
     }
 }

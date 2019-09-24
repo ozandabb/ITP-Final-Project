@@ -220,6 +220,18 @@
 
 
 
+                            } else {
+                                $dialog.dialog('close');
+                                oTable.ajax.reload();
+
+
+                                $.notify(data.message, {
+                                    globalPosition: 'top right',
+                                    hideAnimation: 'slideUp',
+                                    showAnimation: 'slideDown',
+                                    className: "error"
+                                })
+
                             }
                         }
                     })

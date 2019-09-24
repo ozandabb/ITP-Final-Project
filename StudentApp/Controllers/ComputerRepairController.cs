@@ -70,7 +70,7 @@ namespace StudentApp.Controllers
                         }
                         catch (Exception)
                         {
-                            status = true;
+                            status = false;
                             return new JsonResult { Data = new { status = status, message = "Invalid Machine Number.Please Check Computer Details Page" } };
                             throw;
                         }
