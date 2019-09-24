@@ -28,14 +28,7 @@ namespace StudentApp.Controllers
                 return View(_db.Students.Where(x => x.Full_Name.Contains(searching) || searching == null).ToList().ToPagedList(i ?? 1, 10));
             }
         }
-        /*
-        public ActionResult Logout()
-        {
-            Session.Abandon();
-            return RedirectToAction("Index", "Home");
-        }
-        */
-        //To print relevant student details
+        
         public ActionResult Details(int id)
         {
                var studentDetais = (from m in _db.Students
@@ -192,6 +185,12 @@ namespace StudentApp.Controllers
             Response.AddHeader("content-disposition", "attachment:filename= studentsRep." + fileNameExtension);
             return File(renderedByte, fileNameExtension);
             //return View();
+        }
+
+
+        public ActionResult generate()
+        {
+            return View("generate");
         }
 
     }

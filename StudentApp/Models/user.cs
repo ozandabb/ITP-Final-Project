@@ -11,11 +11,14 @@ namespace StudentApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class user
     {
         public int UserId_ { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string UserName_ { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string Password_ { get; set; }
         public bool IsActive_ { get; set; }
     }

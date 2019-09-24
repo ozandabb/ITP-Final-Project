@@ -90,6 +90,9 @@ namespace StudentApp.Controllers
         [HttpPost]
         public ActionResult loginUser(user u)
         {
+            if (!ModelState.IsValid)
+                return View();
+
             var user = _db.users.Where(model => model.UserName_ == u.UserName_ && model.Password_ == u.Password_).FirstOrDefault();
             if (user.UserName_ == "admin@gmail.com" && user.Password_ == "admin123")
             {
