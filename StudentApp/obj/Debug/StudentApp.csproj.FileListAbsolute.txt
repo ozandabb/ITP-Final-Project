@@ -1873,3 +1873,4 @@ F:\Osandage version eka\Osandage version 12\ITP-Final-Project\StudentApp\obj\Deb
 F:\Osandage version eka\Osandage version 12\ITP-Final-Project\StudentApp\obj\Debug\StudentApp.csproj.CopyComplete
 F:\Osandage version eka\Osandage version 12\ITP-Final-Project\StudentApp\obj\Debug\StudentApp.dll
 F:\Osandage version eka\Osandage version 12\ITP-Final-Project\StudentApp\obj\Debug\StudentApp.pdb
+F:\Osandage version eka\Osandage version 12\ITP-Final-Project\StudentApp\obj\Debug\StudentApp.csprojResolveAssemblyReference.cache

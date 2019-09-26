@@ -46,17 +46,18 @@ namespace StudentApp.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Required")]
-        
+        [Range(0, 9999999999, ErrorMessage = "Enter a valid phone number")]
         public string Contact_No { get; set; }
 
         [Required(ErrorMessage = "Required")]
         public string Parent_Name { get; set; }
 
         [Required(ErrorMessage = "Required")]
-        [DataType(DataType.PhoneNumber)]
+        [Range(0, 9999999999, ErrorMessage = "Enter a valid phone number")]
         public string Parent_Mobile { get; set; }
-        [DataType(DataType.PhoneNumber)]
+        
         [Required(ErrorMessage = "Required")]
+        [Range(0, 9999999999, ErrorMessage = "Enter a valid phone number")]
         public string Parent_Work { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
